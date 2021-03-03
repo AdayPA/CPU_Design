@@ -1,37 +1,233 @@
-`timescale 1 ns / 10 ps
-
-module cpu_tb;
-
-
-reg clk, reset;
-
-
-// generación de reloj clk
-always //siempre activo, no hay condición de activación
-begin
-  clk = 1'b1;
-  #30;
-  clk = 1'b0;
-  #30;
-end
-
-// instanciación del procesador
-cpu micpu(clk, reset);
-
-initial
-begin
-  $dumpfile("cpu_tb.vcd");
-  $dumpvars;
-  reset = 1;  //a partir del flanco de subida del reset empieza el funcionamiento normal
-  #10;
-  reset = 0;  //bajamos el reset 
-end
-
-initial
-begin
-
-  #(9*60);  //Esperamos 9 ciclos o 9 instrucciones
-  $finish;
-end
-
-endmodule
+$date
+	Wed Mar  3 23:37:42 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	10ps
+$end
+$scope module cpu_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " reset $end
+$scope module micpu $end
+$var wire 1 ! clk $end
+$var wire 1 " reset $end
+$var wire 1 # z $end
+$var wire 1 $ wez $end
+$var wire 1 % we3 $end
+$var wire 1 & s_inm $end
+$var wire 1 ' s_inc $end
+$var wire 6 ( opcode [5:0] $end
+$var wire 4 ) op_alu [3:0] $end
+$scope module cd_1 $end
+$var wire 1 ! clk $end
+$var wire 3 * op_alu [2:0] $end
+$var wire 1 " reset $end
+$var wire 1 + zalu $end
+$var wire 1 # z $end
+$var wire 1 $ wez $end
+$var wire 1 % we3 $end
+$var wire 8 , wd3 [7:0] $end
+$var wire 10 - sum_to_mux [9:0] $end
+$var wire 16 . sal_mem_pro [15:0] $end
+$var wire 1 & s_inm $end
+$var wire 1 ' s_inc $end
+$var wire 8 / rd2 [7:0] $end
+$var wire 8 0 rd1 [7:0] $end
+$var wire 10 1 pc_to_mem [9:0] $end
+$var wire 6 2 opcode [5:0] $end
+$var wire 10 3 mux_to_pc [9:0] $end
+$var wire 8 4 alu_to_mux [7:0] $end
+$scope module alu1 $end
+$var wire 3 5 op_alu [2:0] $end
+$var wire 8 6 y [7:0] $end
+$var wire 1 + zero $end
+$var wire 8 7 b [7:0] $end
+$var wire 8 8 a [7:0] $end
+$var reg 8 9 s [7:0] $end
+$upscope $end
+$scope module banco $end
+$var wire 1 ! clk $end
+$var wire 4 : ra1 [3:0] $end
+$var wire 4 ; ra2 [3:0] $end
+$var wire 4 < wa3 [3:0] $end
+$var wire 1 % we3 $end
+$var wire 8 = wd3 [7:0] $end
+$var wire 8 > rd2 [7:0] $end
+$var wire 8 ? rd1 [7:0] $end
+$upscope $end
+$scope module ffz $end
+$var wire 1 ! clk $end
+$var wire 1 + d $end
+$var wire 1 " reset $end
+$var wire 1 $ carga $end
+$var reg 1 # q $end
+$upscope $end
+$scope module mem_prog $end
+$var wire 1 ! clk $end
+$var wire 16 @ rd [15:0] $end
+$var wire 10 A a [9:0] $end
+$upscope $end
+$scope module mux_1 $end
+$var wire 10 B d0 [9:0] $end
+$var wire 10 C y [9:0] $end
+$var wire 1 ' s $end
+$var wire 10 D d1 [9:0] $end
+$upscope $end
+$scope module mux_2 $end
+$var wire 8 E d0 [7:0] $end
+$var wire 8 F d1 [7:0] $end
+$var wire 8 G y [7:0] $end
+$var wire 1 & s $end
+$upscope $end
+$scope module pc $end
+$var wire 1 ! clk $end
+$var wire 10 H d [9:0] $end
+$var wire 1 " reset $end
+$var reg 10 I q [9:0] $end
+$upscope $end
+$scope module sum1 $end
+$var wire 10 J a [9:0] $end
+$var wire 10 K b [9:0] $end
+$var wire 10 L y [9:0] $end
+$upscope $end
+$upscope $end
+$scope module uc_1 $end
+$var wire 6 M opcode [5:0] $end
+$var wire 1 # z $end
+$var reg 3 N op_alu [2:0] $end
+$var reg 1 ' s_inc $end
+$var reg 1 & s_inm $end
+$var reg 1 % we3 $end
+$var reg 1 $ wez $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b10 N
+b1000 M
+b1 L
+b1 K
+b0 J
+b0 I
+b0x00x000xx H
+b10000 G
+b10010 F
+b10000 E
+b1 D
+b0x00x000xx C
+b100100010 B
+b0 A
+b10000100100010 @
+b1000 ?
+b1000 >
+b10000 =
+b10 <
+b10 ;
+b1 :
+b10000 9
+b1000 8
+b1000 7
+b10000 6
+b10 5
+b10000 4
+b0x00x000xx 3
+b1000 2
+b0 1
+b1000 0
+b1000 /
+b10000100100010 .
+b1 -
+b10000 ,
+0+
+b10 *
+b10 )
+b1000 (
+x'
+0&
+1%
+1$
+0#
+1"
+1!
+$end
+#1000
+0"
+#3000
+0!
+#6000
+x+
+bx ,
+bx =
+bx G
+bx 4
+bx 6
+bx 9
+bx E
+bx 0
+bx 8
+bx ?
+bx /
+bx 7
+bx >
+bx 3
+bx C
+bx H
+bx (
+bx 2
+bx M
+bx F
+bx <
+bx ;
+bx :
+bx B
+bx -
+bx D
+bx L
+bx .
+bx @
+b0x00x000xx 1
+b0x00x000xx A
+b0x00x000xx I
+b0x00x000xx J
+1!
+#9000
+0!
+#12000
+bx 1
+bx A
+bx I
+bx J
+x#
+1!
+#15000
+0!
+#18000
+1!
+#21000
+0!
+#24000
+1!
+#27000
+0!
+#30000
+1!
+#33000
+0!
+#36000
+1!
+#39000
+0!
+#42000
+1!
+#45000
+0!
+#48000
+1!
+#51000
+0!
+#54000
+1!
