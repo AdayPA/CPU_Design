@@ -8,6 +8,10 @@ casez (opcode)
 			wez = 1; s_inm = 0;
 			we3 = 1;
 		end
+	6'b10zzzz:
+		begin
+			s_inm = 1; we3 = 1;
+		end
 default: ;
 endcase
 
