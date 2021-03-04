@@ -1,37 +1,313 @@
-`timescale 1 ns / 10 ps
-
-module cpu_tb;
-
-
-reg clk, reset;
-
-
-// generación de reloj clk
-always //siempre activo, no hay condición de activación
-begin
-  clk = 1'b1;
-  #30;
-  clk = 1'b0;
-  #30;
-end
-
-// instanciación del procesador
-cpu micpu(clk, reset);
-
-initial
-begin
-  $dumpfile("cpu_tb.vcd");
-  $dumpvars;
-  reset = 1;  //a partir del flanco de subida del reset empieza el funcionamiento normal
-  #10;
-  reset = 0;  //bajamos el reset 
-end
-
-initial
-begin
-
-  #(9*60);  //Esperamos 9 ciclos o 9 instrucciones
-  $finish;
-end
-
-endmodule
+$date
+	Thu Mar  4 23:31:13 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	10ps
+$end
+$scope module cpu_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " reset $end
+$scope module micpu $end
+$var wire 1 ! clk $end
+$var wire 1 " reset $end
+$var wire 1 # z $end
+$var wire 1 $ wez $end
+$var wire 1 % we3 $end
+$var wire 1 & s_inm $end
+$var wire 1 ' s_inc $end
+$var wire 6 ( opcode [5:0] $end
+$var wire 4 ) op_alu [3:0] $end
+$scope module cd_1 $end
+$var wire 1 ! clk $end
+$var wire 3 * op_alu [2:0] $end
+$var wire 1 " reset $end
+$var wire 1 + zalu $end
+$var wire 1 # z $end
+$var wire 1 $ wez $end
+$var wire 1 % we3 $end
+$var wire 8 , wd3 [7:0] $end
+$var wire 10 - sum_to_mux [9:0] $end
+$var wire 16 . sal_mem_pro [15:0] $end
+$var wire 1 & s_inm $end
+$var wire 1 ' s_inc $end
+$var wire 8 / rd2 [7:0] $end
+$var wire 8 0 rd1 [7:0] $end
+$var wire 10 1 pc_to_mem [9:0] $end
+$var wire 6 2 opcode [5:0] $end
+$var wire 10 3 mux_to_pc [9:0] $end
+$var wire 8 4 alu_to_mux [7:0] $end
+$scope module alu1 $end
+$var wire 3 5 op_alu [2:0] $end
+$var wire 8 6 y [7:0] $end
+$var wire 1 + zero $end
+$var wire 8 7 b [7:0] $end
+$var wire 8 8 a [7:0] $end
+$var reg 8 9 s [7:0] $end
+$upscope $end
+$scope module banco $end
+$var wire 1 ! clk $end
+$var wire 4 : ra1 [3:0] $end
+$var wire 4 ; ra2 [3:0] $end
+$var wire 4 < wa3 [3:0] $end
+$var wire 1 % we3 $end
+$var wire 8 = wd3 [7:0] $end
+$var wire 8 > rd2 [7:0] $end
+$var wire 8 ? rd1 [7:0] $end
+$upscope $end
+$scope module ffz $end
+$var wire 1 ! clk $end
+$var wire 1 + d $end
+$var wire 1 " reset $end
+$var wire 1 $ carga $end
+$var reg 1 # q $end
+$upscope $end
+$scope module mem_prog $end
+$var wire 1 ! clk $end
+$var wire 16 @ rd [15:0] $end
+$var wire 10 A a [9:0] $end
+$upscope $end
+$scope module mux_1 $end
+$var wire 10 B d0 [9:0] $end
+$var wire 10 C y [9:0] $end
+$var wire 1 ' s $end
+$var wire 10 D d1 [9:0] $end
+$upscope $end
+$scope module mux_2 $end
+$var wire 8 E d0 [7:0] $end
+$var wire 8 F d1 [7:0] $end
+$var wire 8 G y [7:0] $end
+$var wire 1 & s $end
+$upscope $end
+$scope module pc $end
+$var wire 1 ! clk $end
+$var wire 10 H d [9:0] $end
+$var wire 1 " reset $end
+$var reg 10 I q [9:0] $end
+$upscope $end
+$scope module sum1 $end
+$var wire 10 J a [9:0] $end
+$var wire 10 K b [9:0] $end
+$var wire 10 L y [9:0] $end
+$upscope $end
+$upscope $end
+$scope module uc_1 $end
+$var wire 6 M opcode [5:0] $end
+$var wire 1 # z $end
+$var reg 3 N op_alu [2:0] $end
+$var reg 1 ' s_inc $end
+$var reg 1 & s_inm $end
+$var reg 1 % we3 $end
+$var reg 1 $ wez $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b10 N
+b1000 M
+b1 L
+b1 K
+b0 J
+b0 I
+b1 H
+b10000 G
+b10010 F
+b10000 E
+b1 D
+b1 C
+b100100011 B
+b0 A
+b10000100100011 @
+b1000 ?
+b1000 >
+b10000 =
+b11 <
+b10 ;
+b1 :
+b10000 9
+b1000 8
+b1000 7
+b10000 6
+b10 5
+b10000 4
+b1 3
+b1000 2
+b0 1
+b1000 0
+b1000 /
+b10000100100011 .
+b1 -
+b10000 ,
+0+
+b10 *
+b10 )
+b1000 (
+1'
+0&
+1%
+1$
+0#
+1"
+1!
+$end
+#1000
+0"
+#3000
+0!
+#6000
+1+
+b0 ,
+b0 =
+b0 G
+b0 *
+b0 5
+b0 4
+b0 6
+b0 9
+b0 E
+b0 )
+b0 N
+b0 /
+b0 7
+b0 >
+b0 0
+b0 8
+b0 ?
+b10 3
+b10 C
+b10 H
+b0 (
+b0 2
+b0 M
+b0 F
+b0 <
+b0 ;
+b0 :
+b0 B
+b10 -
+b10 D
+b10 L
+b0 .
+b0 @
+b1 1
+b1 A
+b1 I
+b1 J
+1!
+#9000
+0!
+#12000
+b11 3
+b11 C
+b11 H
+b11 -
+b11 D
+b11 L
+b10 1
+b10 A
+b10 I
+b10 J
+1#
+1!
+#15000
+0!
+#18000
+b100 3
+b100 C
+b100 H
+b100 -
+b100 D
+b100 L
+b11 1
+b11 A
+b11 I
+b11 J
+1!
+#21000
+0!
+#24000
+b101 3
+b101 C
+b101 H
+b101 -
+b101 D
+b101 L
+b100 1
+b100 A
+b100 I
+b100 J
+1!
+#27000
+0!
+#30000
+b110 3
+b110 C
+b110 H
+b110 -
+b110 D
+b110 L
+b101 1
+b101 A
+b101 I
+b101 J
+1!
+#33000
+0!
+#36000
+b111 3
+b111 C
+b111 H
+b111 -
+b111 D
+b111 L
+b110 1
+b110 A
+b110 I
+b110 J
+1!
+#39000
+0!
+#42000
+b1000 3
+b1000 C
+b1000 H
+b1000 -
+b1000 D
+b1000 L
+b111 1
+b111 A
+b111 I
+b111 J
+1!
+#45000
+0!
+#48000
+b1001 3
+b1001 C
+b1001 H
+b1001 -
+b1001 D
+b1001 L
+b1000 1
+b1000 A
+b1000 I
+b1000 J
+1!
+#51000
+0!
+#54000
+b1010 3
+b1010 C
+b1010 H
+b1010 -
+b1010 D
+b1010 L
+b1001 1
+b1001 A
+b1001 I
+b1001 J
+1!
