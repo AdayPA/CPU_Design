@@ -23,7 +23,7 @@ CAT::CAT(std::string& inputProgFile, std::string& outputProgFile) {
   std::ofstream output_stream;
   output_stream.open(outputProgFile_);
   int lines = Count_lines(inputProgFile_);
-  for (int i = 0; i < lines; i++) {
+  for (int i = 1; i <= lines; i++) {
      std::vector<std::string> temp_ = Split(Get_line(inputProgFile, i) ," ");
      for (int j = 0; j < temp_.size(); j++) {
        output_stream << GetToken(temp_.at(j));
@@ -32,7 +32,6 @@ CAT::CAT(std::string& inputProgFile, std::string& outputProgFile) {
      output_stream << std::endl;
   }
   output_stream.close();
-  std::cout << AddUnderscore("0000111100001111") << std::endl;
 }
 
 void CAT::FormatOutput(void) {
@@ -40,7 +39,7 @@ void CAT::FormatOutput(void) {
 	std::ofstream output_stream;	
 	output_stream.open(outputProgFile_);
 	for (int i = 0; i < lines; i++) {
-
+			
 	}
 }
 
