@@ -26,11 +26,37 @@ CAT::CAT(std::string& inputProgFile, std::string& outputProgFile) {
   for (int i = 0; i < lines; i++) {
      std::vector<std::string> temp_ = Split(Get_line(inputProgFile, i) ," ");
      for (int j = 0; j < temp_.size(); j++) {
-       std::cout << GetToken(temp_.at(j));
+       output_stream << GetToken(temp_.at(j));
      
      }
+     output_stream << std::endl;
   }
+  output_stream.close();
+  std::cout << AddUnderscore("0000111100001111") << std::endl;
 }
+
+void CAT::FormatOutput(void) {
+	int lines = Count_lines (outputProgFile_);
+	std::ofstream output_stream;	
+	output_stream.open(outputProgFile_);
+	for (int i = 0; i < lines; i++) {
+
+	}
+}
+
+std::string CAT::AddUnderscore(std::string opcode) {
+	std::string underscore = "_";
+	std::string str;
+	str.append(opcode.begin(),opcode.begin()+4);
+	str.append(underscore);
+	str.append(opcode.begin()+4,opcode.begin()+8);
+	str.append(underscore);
+	str.append(opcode.begin()+8,opcode.begin()+12);
+	str.append(underscore);
+	str.append(opcode.begin()+12,opcode.begin()+16);
+	return str;
+}
+
 
 void CAT::OutputOpenError(void) {
   /// @brief If output file got an error, we will notice it

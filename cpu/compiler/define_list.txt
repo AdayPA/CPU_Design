@@ -7,6 +7,7 @@
 #define r6 0110
 #define r7 0111
 #define r8 1000
+#define nop 0000
 #define cmpl 0001
 #define add  0010
 #define sub 0011

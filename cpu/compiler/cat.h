@@ -25,6 +25,8 @@ class CAT {
   void RemoveFile(const char * file_to_remove);
   std::string ClearComments(std::string new_file_name);
   std::string GetToken(std::string);
+  void FormatOutput(void);
+  std::string AddUnderscore(std::string);
   // permissions
   // size for file
   // error type
