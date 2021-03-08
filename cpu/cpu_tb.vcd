@@ -1,5 +1,5 @@
 $date
-	Fri Mar  5 14:46:01 2021
+	Mon Mar  8 13:20:10 2021
 $end
 $version
 	Icarus Verilog
@@ -19,30 +19,30 @@ $var wire 1 % we3 $end
 $var wire 1 & s_inm $end
 $var wire 1 ' s_inc $end
 $var wire 6 ( opcode [5:0] $end
-$var wire 4 ) op_alu [3:0] $end
+$var wire 3 ) op_alu [2:0] $end
 $scope module cd_1 $end
 $var wire 1 ! clk $end
-$var wire 3 * op_alu [2:0] $end
 $var wire 1 " reset $end
-$var wire 1 + zalu $end
+$var wire 1 * zalu $end
 $var wire 1 # z $end
 $var wire 1 $ wez $end
 $var wire 1 % we3 $end
-$var wire 8 , wd3 [7:0] $end
-$var wire 10 - sum_to_mux [9:0] $end
-$var wire 16 . sal_mem_pro [15:0] $end
+$var wire 8 + wd3 [7:0] $end
+$var wire 10 , sum_to_mux [9:0] $end
+$var wire 16 - sal_mem_pro [15:0] $end
 $var wire 1 & s_inm $end
 $var wire 1 ' s_inc $end
-$var wire 8 / rd2 [7:0] $end
-$var wire 8 0 rd1 [7:0] $end
-$var wire 10 1 pc_to_mem [9:0] $end
-$var wire 6 2 opcode [5:0] $end
+$var wire 8 . rd2 [7:0] $end
+$var wire 8 / rd1 [7:0] $end
+$var wire 10 0 pc_to_mem [9:0] $end
+$var wire 6 1 opcode [5:0] $end
+$var wire 3 2 op_alu [2:0] $end
 $var wire 10 3 mux_to_pc [9:0] $end
 $var wire 8 4 alu_to_mux [7:0] $end
 $scope module alu1 $end
-$var wire 3 5 op_alu [2:0] $end
-$var wire 8 6 y [7:0] $end
-$var wire 1 + zero $end
+$var wire 8 5 y [7:0] $end
+$var wire 1 * zero $end
+$var wire 3 6 op_alu [2:0] $end
 $var wire 8 7 b [7:0] $end
 $var wire 8 8 a [7:0] $end
 $var reg 8 9 s [7:0] $end
@@ -59,7 +59,7 @@ $var wire 8 ? rd1 [7:0] $end
 $upscope $end
 $scope module ffz $end
 $var wire 1 ! clk $end
-$var wire 1 + d $end
+$var wire 1 * d $end
 $var wire 1 " reset $end
 $var wire 1 $ carga $end
 $var reg 1 # q $end
@@ -107,49 +107,49 @@ $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-b10 N
-b1000 M
+bx N
+b100011 M
 b1 L
 b1 K
 b0 J
 b0 I
 b1 H
-b10 G
-b100001 F
-b10 E
+b11111111 G
+b11111111 F
+bx E
 b1 D
 b1 C
-b1000010001 B
+b1111111001 B
 b0 A
-b10001000010001 @
-b1 ?
-b1 >
-b10 =
-b1 <
-b1 ;
-b10 :
-b10 9
-b1 8
-b1 7
-b10 6
-b10 5
-b10 4
+b1000111111111001 @
+b0 ?
+b0 >
+b11111111 =
+b1001 <
+b1111 ;
+b1111 :
+bx 9
+b0 8
+b0 7
+bx 6
+bx 5
+bx 4
 b1 3
-b1000 2
-b0 1
-b1 0
-b1 /
-b10001000010001 .
-b1 -
-b10 ,
-0+
-b10 *
-b10 )
-b1000 (
+bx 2
+b100011 1
+b0 0
+b0 /
+b0 .
+b1000111111111001 -
+b1 ,
+b11111111 +
+x*
+bx )
+b100011 (
 1'
-0&
+1&
 1%
-1$
+x$
 0#
 1"
 1!
@@ -159,27 +159,30 @@ $end
 #3000
 0!
 #6000
-b11 ,
-b11 =
-b11 G
-b11 4
-b11 6
-b11 9
-b11 E
-b10 /
-b10 7
-b10 >
-b10 3
-b10 C
-b10 H
+0'
+b10 +
+b10 =
+b10 G
+b1 .
+b1 7
+b1 >
+b100010 3
+b100010 C
+b100010 H
+b110000 (
+b110000 1
+b110000 M
+b10 F
 b10 <
-b1000010010 B
-b10 -
+b10 ;
+b0 :
+b100010 B
+b10 ,
 b10 D
 b10 L
-b10001000010010 .
-b10001000010010 @
-b1 1
+b1100000000100010 -
+b1100000000100010 @
+b1 0
 b1 A
 b1 I
 b1 J
@@ -187,225 +190,140 @@ b1 J
 #9000
 0!
 #12000
-b101 ,
-b101 =
-b101 G
-b101 4
-b101 6
-b101 9
-b101 E
-b11 0
-b11 8
-b11 ?
-b11 3
-b11 C
-b11 H
-b1 <
-b1000010001 B
-b11 -
-b11 D
-b11 L
-b10001000010001 .
-b10001000010001 @
-b10 1
-b10 A
-b10 I
-b10 J
-1!
-#15000
-0!
-#18000
-b1000 ,
-b1000 =
-b1000 G
-b1000 4
-b1000 6
-b1000 9
-b1000 E
-b101 /
-b101 7
-b101 >
-b100 3
-b100 C
-b100 H
-b10 <
-b1000010010 B
-b100 -
-b100 D
-b100 L
-b10001000010010 .
-b10001000010010 @
-b11 1
-b11 A
-b11 I
-b11 J
-1!
-#21000
-0!
-#24000
-b1101 ,
-b1101 =
-b1101 G
-b1101 4
-b1101 6
-b1101 9
-b1101 E
-b1000 0
-b1000 8
-b1000 ?
-b101 3
-b101 C
-b101 H
-b1 <
-b1000010001 B
-b101 -
-b101 D
-b101 L
-b10001000010001 .
-b10001000010001 @
-b100 1
-b100 A
-b100 I
-b100 J
-1!
-#27000
-0!
-#30000
-b10101 ,
-b10101 =
-b10101 G
-b10101 4
-b10101 6
-b10101 9
-b10101 E
-b1101 /
-b1101 7
-b1101 >
-b110 3
-b110 C
-b110 H
-b10 <
-b1000010010 B
-b110 -
-b110 D
-b110 L
-b10001000010010 .
-b10001000010010 @
-b101 1
-b101 A
-b101 I
-b101 J
-1!
-#33000
-0!
-#36000
-b100010 ,
-b100010 =
-b100010 G
-b100010 4
-b100010 6
-b100010 9
-b100010 E
-b10101 0
-b10101 8
-b10101 ?
-b111 3
-b111 C
-b111 H
-b1 <
-b1000010001 B
-b111 -
-b111 D
-b111 L
-b10001000010001 .
-b10001000010001 @
-b110 1
-b110 A
-b110 I
-b110 J
-1!
-#39000
-0!
-#42000
-b110111 ,
-b110111 =
-b110111 G
-b110111 4
-b110111 6
-b110111 9
-b110111 E
-b100010 /
-b100010 7
-b100010 >
-b1000 3
-b1000 C
-b1000 H
-b10 <
-b1000010010 B
-b1000 -
-b1000 D
-b1000 L
-b10001000010010 .
-b10001000010010 @
-b111 1
-b111 A
-b111 I
-b111 J
-1!
-#45000
-0!
-#48000
-1+
-b0 ,
-b0 =
-b0 G
-b0 *
-b0 5
+1*
 b0 4
-b0 6
+b0 5
 b0 9
 b0 E
+1'
+0&
+1$
 b0 )
+b0 2
+b0 6
 b0 N
-b0 /
+b0 +
+b0 =
+b0 G
+b100011 3
+b100011 C
+b100011 H
+b0 .
 b0 7
 b0 >
-b0 0
-b0 8
-b0 ?
-b1001 3
-b1001 C
-b1001 H
 b0 (
-b0 2
+b0 1
 b0 M
 b0 F
 b0 <
 b0 ;
-b0 :
 b0 B
-b1001 -
-b1001 D
-b1001 L
-b0 .
+b100011 ,
+b100011 D
+b100011 L
+b0 -
 b0 @
-b1000 1
-b1000 A
-b1000 I
-b1000 J
+b100010 0
+b100010 A
+b100010 I
+b100010 J
+1!
+#15000
+0!
+#18000
+b100100 3
+b100100 C
+b100100 H
+1#
+b100100 ,
+b100100 D
+b100100 L
+b100011 0
+b100011 A
+b100011 I
+b100011 J
+1!
+#21000
+0!
+#24000
+b100101 3
+b100101 C
+b100101 H
+b100101 ,
+b100101 D
+b100101 L
+b100100 0
+b100100 A
+b100100 I
+b100100 J
+1!
+#27000
+0!
+#30000
+b100110 3
+b100110 C
+b100110 H
+b100110 ,
+b100110 D
+b100110 L
+b100101 0
+b100101 A
+b100101 I
+b100101 J
+1!
+#33000
+0!
+#36000
+b100111 3
+b100111 C
+b100111 H
+b100111 ,
+b100111 D
+b100111 L
+b100110 0
+b100110 A
+b100110 I
+b100110 J
+1!
+#39000
+0!
+#42000
+b101000 3
+b101000 C
+b101000 H
+b101000 ,
+b101000 D
+b101000 L
+b100111 0
+b100111 A
+b100111 I
+b100111 J
+1!
+#45000
+0!
+#48000
+b101001 3
+b101001 C
+b101001 H
+b101001 ,
+b101001 D
+b101001 L
+b101000 0
+b101000 A
+b101000 I
+b101000 J
 1!
 #51000
 0!
 #54000
-b1010 3
-b1010 C
-b1010 H
-1#
-b1010 -
-b1010 D
-b1010 L
-b1001 1
-b1001 A
-b1001 I
-b1001 J
+b101010 3
+b101010 C
+b101010 H
+b101010 ,
+b101010 D
+b101010 L
+b101001 0
+b101001 A
+b101001 I
+b101001 J
 1!

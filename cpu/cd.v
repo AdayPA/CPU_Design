@@ -20,7 +20,7 @@ alu alu1(rd1, rd2, op_alu, alu_to_mux, zalu);
 //7
 ffd ffz(clk, reset, zalu, wez, z);
 //8 
-sum sum1(pc_to_mem, 0000000001 , sum_to_mux);
+sum sum1(pc_to_mem, 10'b1 , sum_to_mux);
 
 assign opcode = sal_mem_pro[15:10];
 

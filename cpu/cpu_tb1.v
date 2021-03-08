@@ -21,7 +21,7 @@ cpu micpu(clk, reset);
 initial
 begin
   $dumpfile("cpu_tb.vcd");
-  $dumpvars;
+  //$dumpvars(0,cpu_tb.micpu.cd_1.banco.regb[); TODO
   reset = 1;  //a partir del flanco de subida del reset empieza el funcionamiento normal
   #10;
   reset = 0;  //bajamos el reset 
