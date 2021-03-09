@@ -71,7 +71,7 @@ endmodule
 
 module  pila(input wire clk, reset, push, pop, input wire [9:0] inpush, output wire [9:0] outpop );
   reg [2:0] sp;
-  reg [9:0] mem[0:9];
+  reg [9:0] mem[0:7];
   initial 
     begin
       sp = 3b'000;

@@ -1,12 +1,12 @@
-module cd(input wire clk, reset, s_inc, s_inm, we3, wez, input wire [2:0] op_alu, output wire z, output wire [5:0] opcode);
+module cd(input wire clk, reset, s_inc, s_inm, we3, wez, s_pila, push, pop,  input wire [2:0] op_alu, output wire z, output wire [5:0] opcode);
 //Camino de datos de instrucciones de un solo ciclo
-wire [9:0] mux_to_pc, pc_to_mem, sum_to_mux;
+wire [9:0] mux_to_pc, pc_to_mem, sum_to_mux, mux_to_mux, pila_to_mux;
 wire [7:0] rd1, rd2, alu_to_mux, wd3;
 wire [15:0] sal_mem_pro;
 wire zalu;
 
 //1
-mux2 #10 mux_1(sal_mem_pro[9:0], sum_to_mux, s_inc, mux_to_pc);
+mux2 #10 mux_1(sal_mem_pro[9:0], sum_to_mux, s_inc, mux_to_mux);
 //2
 registro #10 pc(clk, reset, mux_to_pc, pc_to_mem);
 //3
@@ -21,6 +21,11 @@ alu alu1(rd1, rd2, op_alu, alu_to_mux, zalu);
 ffd ffz(clk, reset, zalu, wez, z);
 //8 
 sum sum1(pc_to_mem, 10'b1 , sum_to_mux);
+//9 
+mux2 #10 mux_3(mux_to_mux, pila_to_mux, s_pila, mux_to_pc);
+//10
+pila pila1(clk, reset, push, pop, pc_to_mem, pila_to_mux);
+
 
 assign opcode = sal_mem_pro[15:10];
 
