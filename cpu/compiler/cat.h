@@ -27,6 +27,7 @@ class CAT {
   std::string GetToken(std::string);
   void FormatOutput(void);
   std::string AddUnderscore(std::string);
+  bool CheckOpcode(std::string);
   // permissions
   // size for file
   // error type

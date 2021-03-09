@@ -1,20 +1,20 @@
-#define r0 0000
-#define r1 0001
-#define r2 0010
-#define r3 0011
-#define r4 0100
-#define r5 0101
-#define r6 0110
-#define r7 0111
-#define r8 1000
-#define nop 0000
-#define cmpl 0001
-#define add  0010
-#define sub 0011
-#define and 0100
-#define or 0101
-#define aneg 0110
-#define bneg 0111
-#define slt 110000
-#define sltz 111000
-#define sltnz 111100
+r0 0000 4 1
+r1 0001 4 1
+r2 0010 4 1
+r3 0011 4 1
+r4 0100 4 1
+r5 0101 4 1
+r6 0110 4 1
+r7 0111 4 1
+r8 1000 4 1
+nop 0000 4 2
+cmpl 0001 4 2
+add  0010 4 2
+sub 0011 4 2
+and 0100 4 2
+or 0101 4 2
+aneg 0110 4 2
+bneg 0111 4 2
+slt 110000 6 3
+sltz 111000 6 3
+sltnz 111100 6 3

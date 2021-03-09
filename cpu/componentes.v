@@ -69,4 +69,31 @@ module ffd(input wire clk, reset, d, carga, output reg q);
 
 endmodule 
 
+module  pila(input wire clk, reset, push, pop, input wire [9:0] inpush, output wire [9:0] outpop );
+  reg [2:0] sp;
+  reg [9:0] mem[0:9];
+  initial 
+    begin
+      sp = 3b'000;
+    end
+
+  always @(posedge clk, push, pop)
+	  if ( reset )
+		sp = 3b'0;
+	  if ( push == 1 )
+	        mem[sp] = inpush;	
+		sp = sp + 1;
+	  if ( pop == 1)
+		outpop = mem[sp];
+		sp = sp - 1;
+
+endmodule
+
+
+
+
+
+
+
+
 

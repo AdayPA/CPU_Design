@@ -10,6 +10,7 @@
 #include <regex>
 #include <algorithm>
 
+const SIZE_WORD = 16;
 const std::string kFileExt = ".txt";
 
 CAT::CAT() {}
@@ -86,8 +87,20 @@ std::string CAT::GetToken(std::string opcode) {
    std::ifstream inputfile("define_list.txt");
    for (int i = 0; i <= lines; i++) {
      std::vector<std::string> temp_ = Split(Get_line("define_list.txt", i) ," ");
-     if (opcode == temp_.at(1)) return temp_.at(2);
+     if (opcode == temp_.at(0)) return temp_.at(1);
    }
+}
+
+bool CAT::CheckOpcode(std::string opcode) {
+	int lenght = 0;
+	int lines = Count_lines("define_list.txt");
+	std::ifstream inputfile("define_list.txt");
+	for (int i = 0; i <= lines; i++) {
+		std::vector<std::string> temp_ = Split(Get_line("define_list.txt", i) ," ");
+		if (opcode == temp_.at(0)) length = lenght + temp_.at(2);			
+	}
+	if (lenght == SIZE_WORD) return true;
+	else return false;
 }
 
 
