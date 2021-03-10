@@ -88,8 +88,8 @@ module  pila(input wire clk, reset, push, pop, input wire [9:0] inpush, output r
 		end
 	  if ( pop ) 
 		begin
-			outpop = mem[sp];
 			sp = sp - 3'b001;
+			outpop = mem[sp];
 		end
 	end
 
