@@ -1,5 +1,5 @@
 $date
-	Wed Mar 10 10:46:57 2021
+	Wed Mar 10 10:53:16 2021
 $end
 $version
 	Icarus Verilog
@@ -142,9 +142,9 @@ b1 T
 bx S
 b0 R
 b0 Q
-bx P
+b0x P
 bx O
-bx N
+b0x N
 b0x M
 bx L
 b0 K
@@ -167,7 +167,7 @@ bx ;
 bx :
 bx 9
 b0x 8
-bx 7
+b0x 7
 bx 6
 b100100 5
 b0 4
@@ -180,13 +180,13 @@ bx .
 x-
 bx ,
 b100100 +
-x*
+0*
 1)
 x(
 x'
-1&
-x%
-x$
+0&
+0%
+0$
 0#
 1"
 1!
@@ -197,6 +197,9 @@ b10 T
 #3000
 0!
 #6000
+bx 7
+bx N
+bx P
 bx 1
 bx <
 bx C
@@ -219,16 +222,21 @@ bx I
 bx W
 bx 0
 bx E
-bx 4
-bx F
-bx Q
-bx R
-bx U
+b0x 4
+b0x F
+b0x Q
+b0x R
+b0x U
 b11 T
 1!
 #9000
 0!
 #12000
+bx 4
+bx F
+bx Q
+bx R
+bx U
 b100 T
 1!
 #15000
