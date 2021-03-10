@@ -46,6 +46,7 @@ casez (opcode)
 		end
 	6'b100100: // push pila
 		begin
+			s_inc = 1;
 			push = 1; pop = 0;
 			s_pila = 0;
 			we3 = 0; wez = 0;
