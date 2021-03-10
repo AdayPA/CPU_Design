@@ -1,5 +1,5 @@
 $date
-	Wed Mar 10 10:30:10 2021
+	Wed Mar 10 10:36:38 2021
 $end
 $version
 	Icarus Verilog
@@ -243,28 +243,12 @@ b1 U
 b11 7
 b11 N
 b11 P
-1%
-1$
-b0 ,
-b0 6
-b0 ;
-b0 Y
 b11 8
 b11 H
 b11 M
-b0 +
-b0 5
-b0 X
-b0 K
-b0 A
-b0 @
-b0 ?
-b0 G
 b11 /
 b11 I
 b11 W
-b0 0
-b0 E
 b10 4
 b10 F
 b10 Q
@@ -277,13 +261,28 @@ b10 U
 b100 7
 b100 N
 b100 P
+1%
+1$
+b0 ,
+b0 6
+b0 ;
+b0 Y
 b100 8
 b100 H
 b100 M
-1#
+b0 +
+b0 5
+b0 X
+b0 K
+b0 A
+b0 @
+b0 ?
+b0 G
 b100 /
 b100 I
 b100 W
+b0 0
+b0 E
 b11 4
 b11 F
 b11 Q
@@ -307,6 +306,7 @@ b100 F
 b100 Q
 b100 R
 b100 U
+1#
 1!
 #27000
 0!
