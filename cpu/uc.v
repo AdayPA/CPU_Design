@@ -7,6 +7,7 @@ casez (opcode)
 			op_alu = opcode[4:2];
 			wez = 1; s_inm = 0;
 			we3 = 1; s_inc = 1;
+			s_pila = 0;
 		end
 	6'b100000:   // carga inmediata
 		begin
