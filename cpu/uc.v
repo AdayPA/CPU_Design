@@ -21,6 +21,7 @@ casez (opcode)
 	6'b100010:  // salto si z
 		begin
 			s_pila = 0;
+			we3 = 0; wez = 0;
 			// if ( z == 1b'1 ) begin
 			if ( z == 1 ) begin
 				s_inc = 0;
@@ -31,6 +32,7 @@ casez (opcode)
 	6'b100011: // salto si no z
 		begin
 			s_pila = 0;
+			we3 = 0; wez = 0;
 			if ( z == 0 ) begin
 				s_inc = 0;
 			end else begin
