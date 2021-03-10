@@ -78,7 +78,7 @@ module  pila(input wire clk, reset, push, pop, input wire [9:0] inpush, output r
       sp = 0;
     end
 
-    always @(posedge clk, push, pop, reset) begin
+    always @(posedge clk, reset) begin
 	  if ( reset )
 		sp = 3'b000;
 	if ( push ) 
