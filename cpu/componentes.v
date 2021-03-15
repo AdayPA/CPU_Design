@@ -97,13 +97,13 @@ endmodule
 
 //memoria de datos
 
-module regprog (input wire clk, input wire we4, input wire [4:0] wra, input wire [7:0] wd, output wire [7:0] rd);
+module regprog (input wire clk, input wire we4, input wire [5:0] wra, input wire [7:0] wd, output wire [7:0] rd);
 	
 	// we4 : write enable
 	// wra : write/read addres
 	// wd : write data
 	// rd : read data
-	reg [7:0] regb[0:15];
+	reg [7:0] regb[0:63];  //memoria de 64 de 8 bits de ancho
 
 	initial
 	begin
