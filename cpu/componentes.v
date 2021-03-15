@@ -95,8 +95,27 @@ module  pila(input wire clk, reset, push, pop, input wire [9:0] inpush, output r
 
 endmodule
 
+//memoria de datos
+
+module regprog (input wire clk, input wire we4, input wire [4:0] wra, input wire [7:0] wd, output wire [7:0] rd);
+	
+	// we4 : write enable
+	// wra : write/read addres
+	// wd : write data
+	// rd : read data
+	reg [7:0] regb[0:15];
+
+	initial
+	begin
+		$readmemb("regdata.dat", regb);
+	end
+	always @(posedge clk)
+		if (we4) regb[wra] <= wd;
+	
+	assign rd = regb[wra];
 
 
+endmodule
 
 
 
