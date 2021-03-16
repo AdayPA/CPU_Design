@@ -97,28 +97,36 @@ endmodule
 
 //memoria de datos
 
-module regprog (input wire clk, input wire we4, input wire [5:0] wra, input wire [7:0] wd, output wire [7:0] rd);
+module regprog (input wire clk, input wire we4, input wire [11:0] wra, input wire [7:0] wd, output wire [7:0] rd);
 	
 	// we4 : write enable
 	// wra : write/read addres
 	// wd : write data
 	// rd : read data
-	reg [7:0] regb[0:63];  //memoria de 64 de 8 bits de ancho
+	reg [7:0] regb[0:255];  //memoria de 255 de 8 bits de ancho
 
 	initial
 	begin
 		$readmemb("regdata.dat", regb);
 	end
+	// sw -> 
 	always @(posedge clk)
-		if (we4) regb[wra] <= wd;
+		if (we4) regb[wra[7:0]] <= wd;
 	
-	assign rd = regb[wra];
+	assign rd = regb[wra[11:4]];
 
 
 endmodule
 
 
-
-
-
-
+module mux41 #(parameter WIDTH = 8) (input wire [WIDTH-1:0] a, b, c, d, input wire [1:0] s, output reg [WIDTH-1:0] out);
+	always@(a or b or c or d or s)
+	begin
+		case(s)
+			2'b00: out <= a;
+			2'b01: out <= b;
+			2'b10: out <= c;
+			2'b11: out <= d;
+		endcase
+	end
+endmodule

@@ -1,7 +1,7 @@
-module cd(input wire clk, reset, s_inc, s_inm, we3, wez, s_pila, push, pop, we4,s_data,  input wire [2:0] op_alu, output wire z, output wire [5:0] opcode);
+module cd(input wire clk, reset, s_inc, we3, wez, s_pila, push, pop, we4, input wire [1:0] s_inm, input wire [2:0] op_alu, output wire z, output wire [5:0] opcode);
 //Camino de datos de instrucciones de un solo ciclo
 wire [9:0] mux_to_pc, pc_to_mem, sum_to_mux, mux_to_mux, pila_to_mux;
-wire [7:0] rd1, rd2, alu_to_mux, wd3, memdat_to_mux, mux_mem_to_mux_banc;
+wire [7:0] rd1, rd2, alu_to_mux, wd3, memdat_to_mux;
 wire [15:0] sal_mem_pro;
 wire zalu;
 
@@ -14,7 +14,7 @@ memprog mem_prog(clk, pc_to_mem, sal_mem_pro);
 //4
 regfile banco(clk, we3, sal_mem_pro[11:8], sal_mem_pro[7:4], sal_mem_pro[3:0], wd3, rd1, rd2);
 //5
-mux2 #8 mux_2(alu_to_mux, mux_mem_to_mux_banc, s_inm, wd3);
+mux41 #8 mux_2(alu_to_mux, sal_mem_pro[11:4] ,memdat_to_mux, , s_inm, wd3);
 //6
 alu alu1(rd1, rd2, op_alu, alu_to_mux, zalu);
 //7
@@ -26,9 +26,7 @@ mux2 #10 mux_3(mux_to_mux, pila_to_mux, s_pila, mux_to_pc);
 //10
 pila pila1(clk, reset, push, pop, pc_to_mem, pila_to_mux);
 //11
-regprog regpro1(clk,we4,sal_mem_pro[9:4],rd1,memdat_to_mux);
-//12
-mux2 #8 mux_4(sal_mem_pro[11:4],memdat_to_mux,s_data,mux_mem_to_mux_banc);
+regprog regpro1(clk,we4,sal_mem_pro[11:0],rd1,memdat_to_mux);
 
 assign opcode = sal_mem_pro[15:10];
 
