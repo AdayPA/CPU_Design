@@ -79,12 +79,13 @@ module  pila(input wire clk, reset, push, pop, input wire [9:0] inpush, output r
     end
 
     always @(push, pop, posedge reset) begin
-	  if ( reset )
+	if ( reset )
 		sp = 3'b000;
 	if ( push ) 
 		begin
 	        	mem[sp] = inpush;	
 			sp = sp + 3'b001;
+			outpop = 3'b000;
 		end
 	  if ( pop ) 
 		begin
@@ -117,7 +118,6 @@ module regprog (input wire clk, input wire we4, input wire [11:0] wra, input wir
 
 
 endmodule
-
 
 module mux41 #(parameter WIDTH = 8) (input wire [WIDTH-1:0] a, b, c, d, input wire [1:0] s, output reg [WIDTH-1:0] out);
 	always@(a or b or c or d or s)
