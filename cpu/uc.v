@@ -157,13 +157,13 @@ casez (opcode[15:10])
 			op_alu = 3'b000;
 
 		end
-	6'b100111: // reg to output  100111 reg[11:8] empty[7:2] port_out[1:0] 
+	6'b100111: // reg to output  100111 empty[9:8] reg[7:4] empty[3:2]  port_out[1:0] 
 		begin
 			push = 0; 
 			pop = 0;
 		       	we3 = 0;	
 			we4 = 0;
-			we5 = -opcode[0] & -opcode[1];
+			we5 = (-opcode[0]) && (-opcode[1]);
 			we6 = -opcode[0] & opcode[1];
 			we7 = opcode[0] & -opcode[1];
 			we8 = opcode[0] & opcode[1];

@@ -30,7 +30,7 @@ regprog regpro1(clk,we4,sal_mem_pro[11:0],rd1,memdat_to_mux);
 //12
 mux41 #8 mux_4(i1,i2,i3,i4,s_port,input_mux_to_mux);
 //13
-mux2 #8 mux_5(rd1,sal_mem_pro[9:2],s_out,mux_to_reg);
+mux2 #8 mux_5(rd2,sal_mem_pro[9:2],s_out,mux_to_reg);
 //14
 registro #8 reg1(we5,reset,mux_to_reg,reg1_out); 
 //15
