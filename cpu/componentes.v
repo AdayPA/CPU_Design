@@ -113,9 +113,8 @@ module regprog (input wire clk, input wire we4, input wire [11:0] wra, input wir
 	// sw -> 
 	always @(posedge clk)
 		if (we4) regb[wra[7:0]] <= wd;
-	
-	assign rd = regb[wra[11:4]];
 
+	assign rd = regb[wra[11:4]];
 
 endmodule
 
@@ -136,5 +135,16 @@ module deco24 (input wire s0, s1, output wire a, b, c, d);
 	assign b = (s0 & ~s1);
 	assign c = (~s0 & s1);
 	assign d = (s0 & s1);
+endmodule
+
+module registro_mod #(parameter WIDTH = 8)
+              (input wire             clk, reset,
+               input wire [WIDTH-1:0] d,
+               output reg [WIDTH-1:0] q);
+
+  always @(negedge clk, posedge reset)
+    if (reset) q <= 0;
+    else       q <= d;
+
 endmodule
 

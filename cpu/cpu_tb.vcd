@@ -1,5 +1,5 @@
 $date
-	Thu Mar 18 00:30:49 2021
+	Thu Mar 18 19:27:39 2021
 $end
 $version
 	Icarus Verilog
@@ -138,8 +138,8 @@ $upscope $end
 $scope module mux_2 $end
 $var wire 8 v a [7:0] $end
 $var wire 8 w b [7:0] $end
-$var wire 8 x d [7:0] $end
-$var wire 2 y s [1:0] $end
+$var wire 2 x s [1:0] $end
+$var wire 8 y d [7:0] $end
 $var wire 8 z c [7:0] $end
 $var reg 8 { out [7:0] $end
 $upscope $end
@@ -273,8 +273,8 @@ b1 }
 b1 |
 b0 {
 b0 z
-b0 y
-bz x
+bz y
+b0 x
 b0 w
 b0 v
 b1 u
@@ -417,6 +417,14 @@ b1 :"
 #9000
 0)
 #12000
+b1011 &
+b1011 :
+b1011 V
+b1011 4"
+b1011 (
+b1011 <
+b1011 X
+b1011 0"
 b0 ^
 b0 )"
 b0 /"
