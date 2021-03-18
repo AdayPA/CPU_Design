@@ -130,3 +130,11 @@ module mux41 #(parameter WIDTH = 8) (input wire [WIDTH-1:0] a, b, c, d, input wi
 		endcase
 	end
 endmodule
+
+module deco24 (input wire s0, s1, output wire a, b, c, d);
+	assign a = (~s0 & ~s1);
+	assign b = (s0 & ~s1);
+	assign c = (~s0 & s1);
+	assign d = (s0 & s1);
+endmodule
+

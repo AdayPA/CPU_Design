@@ -1,4 +1,4 @@
-module uc(input wire [15:0] opcode, input wire z, output reg s_inc, we3, wez, s_pila, push, pop, we4, s_out, we5, we6, we7, we8,  output reg [1:0] s_port ,output reg [1:0] s_inm,  output reg [2:0] op_alu);
+module uc(input wire [15:0] opcode, input wire z, output reg s_inc, we3, wez, s_pila, push, pop, we4, s_out, we5,  output reg [1:0] s_port ,output reg [1:0] s_inm,  output reg [2:0] op_alu);
 
 always @(opcode)
 casez (opcode[15:10])
@@ -13,9 +13,6 @@ casez (opcode[15:10])
 			pop = 0; 
 			we4 = 0;
 			we5 = 0;
-			we6 = 0;
-			we7 = 0;
-			we8 = 0;
 			wez = 1;
 		        s_port = 2'b00;
 			s_out = 0;	
@@ -31,9 +28,6 @@ casez (opcode[15:10])
 			pop = 0;
 			we4 = 0;
 			we5 = 0;
-			we6 = 0;
-			we7 = 0;
-			we8 = 0;
 			s_out = 0;
 			s_port = 2'b00;
 			wez = 0;
@@ -48,9 +42,6 @@ casez (opcode[15:10])
 			we3 = 0;
 			we4 = 0;
 			we5 = 0;
-			we6 = 0;
-			we7 = 0;
-			we8 = 0;
 			wez = 0;
 			s_out = 0;
 			s_port = 2'b00;
@@ -63,9 +54,6 @@ casez (opcode[15:10])
 			we3 = 0;
 		        we4 = 0;
 			we5 = 0;
-			we6 = 0;
-			we7 = 0;
-			we8 = 0;	
 			wez = 0;
 			push = 0; 
 			pop = 0;
@@ -85,9 +73,6 @@ casez (opcode[15:10])
 		       	we3 = 0;
 			we4 = 0;
 		       	we5 = 0;
-			we6 = 0;
-			we7 = 0;
-			we8 = 0;
 			wez = 0;
 			push = 0; 
 			pop = 0;
@@ -109,9 +94,6 @@ casez (opcode[15:10])
 			we3 = 0; 
 			we4 = 0;
 			we5 = 0;
-			we6 = 0;
-			we7 = 0;
-			we8 = 0;
 			wez = 0;
 			s_pila = 0;
 			s_port = 2'b00;
@@ -127,9 +109,6 @@ casez (opcode[15:10])
 			we3 = 0; 
 			we4 = 0;
 			we5 = 0;
-			we6 = 0;
-			we7 = 0;
-			we8 = 0;
 			wez = 0;
 			s_pila = 1;
 			s_port = 2'b00;
@@ -145,9 +124,6 @@ casez (opcode[15:10])
 			we3 = 1; 
 			we4 = 0;
 			we5 = 0;
-			we6 = 0;
-			we7 = 0;
-			we8 = 0;
 			wez = 0; 
 			s_pila = 0; 
 			s_port = opcode[5:4]; 
@@ -163,10 +139,7 @@ casez (opcode[15:10])
 			pop = 0;
 		       	we3 = 0;	
 			we4 = 0;
-			we5 = (-opcode[0]) && (-opcode[1]);
-			we6 = -opcode[0] & opcode[1];
-			we7 = opcode[0] & -opcode[1];
-			we8 = opcode[0] & opcode[1];
+			we5 = 1;
 			wez = 0;
 			s_pila = 0;
 			s_port = 2'b00;
@@ -179,12 +152,9 @@ casez (opcode[15:10])
 		begin
 			push = 0; 
 			pop = 0;
-			we4 = 0;
 			we3 = 0;
-			we5 = -opcode[0] & -opcode[1];
-			we6 = -opcode[0] & -opcode[1];
-			we7 = -opcode[0] & -opcode[1];
-			we8 = -opcode[0] & -opcode[1];
+			we4 = 0;
+			we5 = 1;
 			wez = 0;
 			s_pila = 0;
 			s_port = 2'b00;
@@ -201,9 +171,6 @@ casez (opcode[15:10])
 			we3 = 1; 
 			we4 = 0;
 		       	we5 = 0;
-			we6 = 0;
-			we7 = 0;
-			we8 = 0;	
 			wez = 0;
 			s_pila = 0;
 			s_port = 2'b00;
@@ -220,9 +187,6 @@ casez (opcode[15:10])
 			we3 = 0; 
 			we4 = 1;
 		       	we5 = 0;
-			we6 = 0;
-			we7 = 0;
-			we8 = 0;	
 			wez = 0;
 			s_pila = 0;
 			s_port = 2'b00;
