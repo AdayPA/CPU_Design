@@ -1,4 +1,4 @@
-module uc(input wire [15:0] opcode, input wire z, output reg s_inc, we3, wez, s_pila, push, pop, we4, s_out, we5,  output reg [1:0] s_port ,output reg [1:0] s_inm,  output reg [2:0] op_alu);
+module uc(input wire [15:0] opcode, input wire z, output reg s_inc, we3, wez, s_pila, push, pop, we4, s_out, we5,  output reg [1:0] s_port ,output reg [1:0] s_inm,  output reg [2:0] op_alu, input wire ie1, ie2, ie3, ie4);
 
 always @(opcode)
 casez (opcode[15:10])
