@@ -148,3 +148,47 @@ module registro_mod #(parameter WIDTH = 8)
 
 endmodule
 
+module reg_int_1(output wire[9:0] s);
+	reg [9:0] reg_dat;
+	initial
+	begin
+		$readmmb("reg_interrupt_1.dat",reg_dat);
+	end
+	assign s = reg_dat;
+endmodule
+
+module reg_int_2(output wire [9:0] s);
+	reg [9:0] reg_dat;
+	initial
+	begin
+		$readmmb("reg_interrupt_2.dat", reg_dat);
+	end
+	assign s = reg_dat;
+endmodule
+
+module reg_int_3(output wire [9:0] s);
+        reg [9:0] reg_dat;
+        initial
+        begin   
+                $readmmb("reg_interrupt_3.dat", reg_dat);
+        end     
+        assign s = reg_dat;
+endmodule
+
+module reg_int_4(output wire [9:0] s);
+        reg [9:0] reg_dat;
+        initial
+        begin   
+                $readmmb("reg_interrupt_4.dat", reg_dat);
+        end     
+        assign s = reg_dat;
+endmodule
+
+module codificador42(input wire ie1, ie2, ie3, ie4, output wire s0, s1);
+	assign s0 = ie2 | ie4;
+	assign s1 = ie3 | ie4;
+endmodule
+
+module timer(input wire reinicio, clk, input wire [2:0] base, input wire [3:0] umbral, output wire s, state);
+// clk de 50 Mhz (usar flip flops para reducir los Hz)
+endmodule
