@@ -245,19 +245,27 @@ begin
  clock_out <= (counter<DIVISOR/2)?1'b1:1'b0;
 
 end*/
-//reg [3:0] temp = 3'b000;
+reg [3:0] temp = 4'b0000;
 always @(posedge clock_in)
 begin
  counter <= counter + 28'd1;
-
+/*
 if(counter %divisor == 0)
 	clock_out = 1'b0;
 else
 	clock_out = 1'b0;
-
+*/
+if (counter %divisor == 0)
+	temp = temp + 4'b0001;
+else
+	temp = temp;
+if (temp == umbral)
+	clock_out = 1'b1;
+else
+	clock_out = 1'b0;
+if(temp>=umbral)
+	temp <= 4'b0000;
 end
-
-
 endmodule
 
 
