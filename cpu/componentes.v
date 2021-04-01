@@ -149,46 +149,96 @@ module registro_mod #(parameter WIDTH = 8)
 endmodule
 
 module reg_int_1(output wire[9:0] s);
-	reg [9:0] reg_dat;
+	reg [9:0] reg_dat = 10'b1111111011;
+	/*
 	initial
 	begin
-		$readmmb("reg_interrupt_1.dat",reg_dat);
-	end
+		$readmemb("reg_interrupt_1.dat",reg_dat);
+	end */
 	assign s = reg_dat;
 endmodule
 
 module reg_int_2(output wire [9:0] s);
-	reg [9:0] reg_dat;
+	reg [9:0] reg_dat = 10'b1111111110;
+	/*
 	initial
 	begin
-		$readmmb("reg_interrupt_2.dat", reg_dat);
+		$readmemb("reg_interrupt_2.dat", reg_dat);
 	end
+	*/
 	assign s = reg_dat;
 endmodule
 
 module reg_int_3(output wire [9:0] s);
-        reg [9:0] reg_dat;
+        reg [9:0] reg_dat = 10'b1111111101;
+	/*
         initial
         begin   
-                $readmmb("reg_interrupt_3.dat", reg_dat);
-        end     
+                $readmemb("reg_interrupt_3.dat", reg_dat);
+        end */     
         assign s = reg_dat;
 endmodule
 
 module reg_int_4(output wire [9:0] s);
-        reg [9:0] reg_dat;
-        initial
+        reg [9:0] reg_dat = 10'b1111111100;
+        /*
+	initial
         begin   
-                $readmmb("reg_interrupt_4.dat", reg_dat);
-        end     
+                $readmemb("reg_interrupt_4.dat", reg_dat);
+        end */     
         assign s = reg_dat;
 endmodule
 
 module codificador42(input wire ie1, ie2, ie3, ie4, output wire s0, s1);
-	assign s0 = ie2 | ie4;
-	assign s1 = ie3 | ie4;
+	assign s0 = (ie2 | ie4) & ~ie1;
+	assign s1 = (ie3 | ie4) & ~ie1;
 endmodule
 
-module timer(input wire reinicio, clk, input wire [2:0] base, input wire [3:0] umbral, output wire s, state);
+//module timer(input wire reinicio, clk, input wire [2:0] base, input wire [3:0] umbral, output wire s, state);
 // clk de 50 Mhz (usar flip flops para reducir los Hz)
+module Clock_divider(input clock_in, reset, input wire [2:0] base, input wire [3:0] umbra, output reg clock_out, state );
+
+	reg[27:0] counter=28'd0;
+	case (base)
+		3'b000:
+			begin
+				parameter DIVISOR = 28'd0;
+			end
+		3'b001:
+                        begin
+                                parameter DIVISOR = 28'd4;
+                        end
+		3'b010:
+                        begin
+                                parameter DIVISOR = 28'd4;
+                        end
+		3'b011:
+                        begin
+                                parameter DIVISOR = 28'd50000000;
+                        end
+		3'b100:
+                        begin
+                                parameter DIVISOR = 28'd4;
+                        end
+	default:
+		begin
+	
+		end
+	endcase
+// The frequency of the output clk_DIVISOR = 28'd4;
+// For example: Fclk_in = 50Mhz, if you want to get 1Hz signal to blink LEDs
+// You will modify the DIVISOR parameter value to 28'd50.000.000
+// Then the frequency of the output clk_out = 50Mhz/50.000.000 = 1Hz
+always @(posedge clock_in)
+begin
+ counter <= counter + 28'd1;
+ if(counter>=(DIVISOR-1))
+  counter <= 28'd0;
+
+ clock_out <= (counter<DIVISOR/2)?1'b1:1'b0;
+
+end
 endmodule
+
+
+//endmodule

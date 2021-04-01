@@ -3,7 +3,7 @@ module cd(input wire clk, reset, s_inc, we3, wez, s_pila, push, pop, we4, s_out,
 wire [9:0] mux6_to_pc, pc_to_mem, sum_to_mux, mux_to_mux, pila_to_mux, mux3_to_mux6, mux7_to_mux6, reg5_to_mux7, reg6_to_mux7, reg7_to_mux7, reg8_to_mux7;
 wire [7:0] rd1, rd2, alu_to_mux, wd3, memdat_to_mux, mux_to_reg, input_mux_to_mux;
 wire [15:0] sal_mem_pro;
-wire zalu, sal_dec_1, sal_dec_2, sal_dec_3, sal_dec_4, and1_to_reg, and2_to_reg, and3_to_reg, and4_to_reg, or_to_mux6, cod42_0_to_mux7, cod42_1_to_mux7;
+wire zalu, sal_dec_1, sal_dec_2, sal_dec_3, sal_dec_4, and1_to_reg, and2_to_reg, and3_to_reg, and4_to_reg, or_to_mux6, cod42_0_to_mux7, cod42_1_to_mux7, or_to_pila;
 
 //1
 mux2 #10 mux_1(sal_mem_pro[9:0], sum_to_mux, s_inc, mux_to_mux);
@@ -24,7 +24,8 @@ sum sum1(pc_to_mem, 10'b1 , sum_to_mux);
 //9 
 mux2 #10 mux_3(mux_to_mux, pila_to_mux, s_pila, mux3_to_mux6);
 //10
-pila pila1(clk, reset, push, pop, pc_to_mem, pila_to_mux);
+//pila pila1(clk, reset, or_to_pila, pop, pc_to_mem, pila_to_mux);
+pila pila1(clk, reset, or_to_pila, pop, mux3_to_mux6, pila_to_mux);
 //11
 regprog regpro1(clk, we4, sal_mem_pro[11:0], rd1, memdat_to_mux);
 //12
@@ -65,8 +66,11 @@ reg_int_4 reg_int_4(reg8_to_mux7);
 codificador42 codificador(ie1, ie2, ie3, ie4, cod42_0_to_mux7, cod42_1_to_mux7 );
 //30
 assign or_to_mux6 = ie1 | ie2 | ie3 | ie4;
-
-
+//31 
+assign or_to_pila = push | or_to_mux6;
+//32
+wire clk_out;
+Clock_divider divisor(clk,,,, clk_out,);
 assign opcode = sal_mem_pro;
 
 

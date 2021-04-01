@@ -1,5 +1,5 @@
 $date
-	Thu Mar 18 19:27:39 2021
+	Wed Mar 24 10:58:25 2021
 $end
 $version
 	Icarus Verilog
@@ -17,342 +17,453 @@ $var wire 8 & o3 [7:0] $end
 $var wire 8 ' o2 [7:0] $end
 $var wire 8 ( o1 [7:0] $end
 $var reg 1 ) clk $end
-$var reg 1 * reset $end
+$var reg 1 * ie1 $end
+$var reg 1 + ie2 $end
+$var reg 1 , ie3 $end
+$var reg 1 - ie4 $end
+$var reg 1 . reset $end
 $scope module micpu $end
 $var wire 1 ) clk $end
-$var wire 8 + i1 [7:0] $end
-$var wire 8 , i2 [7:0] $end
-$var wire 8 - i3 [7:0] $end
-$var wire 8 . i4 [7:0] $end
-$var wire 1 * reset $end
-$var wire 1 / z $end
-$var wire 1 0 wez $end
-$var wire 1 1 we5 $end
-$var wire 1 2 we4 $end
-$var wire 1 3 we3 $end
-$var wire 2 4 s_port [1:0] $end
-$var wire 1 5 s_pila $end
-$var wire 1 6 s_out $end
-$var wire 2 7 s_inm [1:0] $end
-$var wire 1 8 s_inc $end
-$var wire 8 9 reg4_out [7:0] $end
-$var wire 8 : reg3_out [7:0] $end
-$var wire 8 ; reg2_out [7:0] $end
-$var wire 8 < reg1_out [7:0] $end
-$var wire 1 = push $end
-$var wire 1 > pop $end
-$var wire 16 ? opcode [15:0] $end
-$var wire 3 @ op_alu [2:0] $end
+$var wire 8 / i1 [7:0] $end
+$var wire 8 0 i2 [7:0] $end
+$var wire 8 1 i3 [7:0] $end
+$var wire 8 2 i4 [7:0] $end
+$var wire 1 * ie1 $end
+$var wire 1 + ie2 $end
+$var wire 1 , ie3 $end
+$var wire 1 - ie4 $end
+$var wire 1 . reset $end
+$var wire 1 3 z $end
+$var wire 1 4 wez $end
+$var wire 1 5 we5 $end
+$var wire 1 6 we4 $end
+$var wire 1 7 we3 $end
+$var wire 2 8 s_port [1:0] $end
+$var wire 1 9 s_pila $end
+$var wire 1 : s_out $end
+$var wire 2 ; s_inm [1:0] $end
+$var wire 1 < s_inc $end
+$var wire 8 = reg4_out [7:0] $end
+$var wire 8 > reg3_out [7:0] $end
+$var wire 8 ? reg2_out [7:0] $end
+$var wire 8 @ reg1_out [7:0] $end
+$var wire 1 A push $end
+$var wire 1 B pop $end
+$var wire 16 C opcode [15:0] $end
+$var wire 3 D op_alu [2:0] $end
 $scope module cd_1 $end
-$var wire 1 A and1_to_reg $end
-$var wire 1 B and2_to_reg $end
-$var wire 1 C and3_to_reg $end
-$var wire 1 D and4_to_reg $end
+$var wire 1 E and1_to_reg $end
+$var wire 1 F and2_to_reg $end
+$var wire 1 G and3_to_reg $end
+$var wire 1 H and4_to_reg $end
 $var wire 1 ) clk $end
-$var wire 8 E i1 [7:0] $end
-$var wire 8 F i2 [7:0] $end
-$var wire 8 G i3 [7:0] $end
-$var wire 8 H i4 [7:0] $end
-$var wire 16 I opcode [15:0] $end
-$var wire 1 * reset $end
-$var wire 1 J sal_dec_3 $end
-$var wire 1 K zalu $end
-$var wire 1 / z $end
-$var wire 1 0 wez $end
-$var wire 1 1 we5 $end
-$var wire 1 2 we4 $end
-$var wire 1 3 we3 $end
-$var wire 8 L wd3 [7:0] $end
-$var wire 10 M sum_to_mux [9:0] $end
-$var wire 16 N sal_mem_pro [15:0] $end
-$var wire 1 O sal_del_3 $end
-$var wire 1 P sal_dec_4 $end
-$var wire 1 Q sal_dec_2 $end
-$var wire 1 R sal_dec_1 $end
-$var wire 2 S s_port [1:0] $end
-$var wire 1 5 s_pila $end
-$var wire 1 6 s_out $end
-$var wire 2 T s_inm [1:0] $end
-$var wire 1 8 s_inc $end
-$var wire 8 U reg4_out [7:0] $end
-$var wire 8 V reg3_out [7:0] $end
-$var wire 8 W reg2_out [7:0] $end
-$var wire 8 X reg1_out [7:0] $end
-$var wire 8 Y rd2 [7:0] $end
-$var wire 8 Z rd1 [7:0] $end
-$var wire 1 = push $end
-$var wire 1 > pop $end
-$var wire 10 [ pila_to_mux [9:0] $end
-$var wire 10 \ pc_to_mem [9:0] $end
-$var wire 3 ] op_alu [2:0] $end
-$var wire 8 ^ mux_to_reg [7:0] $end
-$var wire 10 _ mux_to_pc [9:0] $end
-$var wire 10 ` mux_to_mux [9:0] $end
-$var wire 8 a memdat_to_mux [7:0] $end
-$var wire 8 b input_mux_to_mux [7:0] $end
-$var wire 8 c alu_to_mux [7:0] $end
+$var wire 8 I i1 [7:0] $end
+$var wire 8 J i2 [7:0] $end
+$var wire 8 K i3 [7:0] $end
+$var wire 8 L i4 [7:0] $end
+$var wire 1 * ie1 $end
+$var wire 1 + ie2 $end
+$var wire 1 , ie3 $end
+$var wire 1 - ie4 $end
+$var wire 16 M opcode [15:0] $end
+$var wire 1 N or_to_mux6 $end
+$var wire 1 O or_to_pila $end
+$var wire 1 . reset $end
+$var wire 1 P sal_dec_3 $end
+$var wire 1 Q zalu $end
+$var wire 1 3 z $end
+$var wire 1 4 wez $end
+$var wire 1 5 we5 $end
+$var wire 1 6 we4 $end
+$var wire 1 7 we3 $end
+$var wire 8 R wd3 [7:0] $end
+$var wire 10 S sum_to_mux [9:0] $end
+$var wire 16 T sal_mem_pro [15:0] $end
+$var wire 1 U sal_del_3 $end
+$var wire 1 V sal_dec_4 $end
+$var wire 1 W sal_dec_2 $end
+$var wire 1 X sal_dec_1 $end
+$var wire 2 Y s_port [1:0] $end
+$var wire 1 9 s_pila $end
+$var wire 1 : s_out $end
+$var wire 2 Z s_inm [1:0] $end
+$var wire 1 < s_inc $end
+$var wire 10 [ reg8_to_mux7 [9:0] $end
+$var wire 10 \ reg7_to_mux7 [9:0] $end
+$var wire 10 ] reg6_to_mux7 [9:0] $end
+$var wire 10 ^ reg5_to_mux7 [9:0] $end
+$var wire 8 _ reg4_out [7:0] $end
+$var wire 8 ` reg3_out [7:0] $end
+$var wire 8 a reg2_out [7:0] $end
+$var wire 8 b reg1_out [7:0] $end
+$var wire 8 c rd2 [7:0] $end
+$var wire 8 d rd1 [7:0] $end
+$var wire 1 A push $end
+$var wire 1 B pop $end
+$var wire 10 e pila_to_mux [9:0] $end
+$var wire 10 f pc_to_mem [9:0] $end
+$var wire 3 g op_alu [2:0] $end
+$var wire 8 h mux_to_reg [7:0] $end
+$var wire 10 i mux_to_mux [9:0] $end
+$var wire 10 j mux7_to_mux6 [9:0] $end
+$var wire 10 k mux6_to_pc [9:0] $end
+$var wire 10 l mux3_to_mux6 [9:0] $end
+$var wire 8 m memdat_to_mux [7:0] $end
+$var wire 8 n input_mux_to_mux [7:0] $end
+$var wire 1 o cod42_1_to_mux7 $end
+$var wire 1 p cod42_0_to_mux7 $end
+$var wire 1 q clk_out $end
+$var wire 8 r alu_to_mux [7:0] $end
 $scope module alu1 $end
-$var wire 8 d y [7:0] $end
-$var wire 1 K zero $end
-$var wire 3 e op_alu [2:0] $end
-$var wire 8 f b [7:0] $end
-$var wire 8 g a [7:0] $end
-$var reg 8 h s [7:0] $end
+$var wire 8 s y [7:0] $end
+$var wire 1 Q zero $end
+$var wire 3 t op_alu [2:0] $end
+$var wire 8 u b [7:0] $end
+$var wire 8 v a [7:0] $end
+$var reg 8 w s [7:0] $end
 $upscope $end
 $scope module banco $end
 $var wire 1 ) clk $end
-$var wire 4 i ra1 [3:0] $end
-$var wire 4 j ra2 [3:0] $end
-$var wire 4 k wa3 [3:0] $end
-$var wire 1 3 we3 $end
-$var wire 8 l wd3 [7:0] $end
-$var wire 8 m rd2 [7:0] $end
-$var wire 8 n rd1 [7:0] $end
+$var wire 4 x ra1 [3:0] $end
+$var wire 4 y ra2 [3:0] $end
+$var wire 4 z wa3 [3:0] $end
+$var wire 1 7 we3 $end
+$var wire 8 { wd3 [7:0] $end
+$var wire 8 | rd2 [7:0] $end
+$var wire 8 } rd1 [7:0] $end
+$upscope $end
+$scope module codificador $end
+$var wire 1 * ie1 $end
+$var wire 1 + ie2 $end
+$var wire 1 , ie3 $end
+$var wire 1 - ie4 $end
+$var wire 1 p s0 $end
+$var wire 1 o s1 $end
 $upscope $end
 $scope module dec_1 $end
-$var wire 1 R a $end
-$var wire 1 Q b $end
-$var wire 1 O c $end
-$var wire 1 P d $end
-$var wire 1 o s0 $end
-$var wire 1 p s1 $end
+$var wire 1 X a $end
+$var wire 1 W b $end
+$var wire 1 U c $end
+$var wire 1 V d $end
+$var wire 1 ~ s0 $end
+$var wire 1 !" s1 $end
+$upscope $end
+$scope module divisor $end
+$var wire 3 "" base [2:0] $end
+$var wire 1 ) clock_in $end
+$var wire 1 #" reset $end
+$var wire 4 $" umbra [3:0] $end
+$var reg 1 q clock_out $end
+$var reg 28 %" counter [27:0] $end
+$var reg 1 &" state $end
 $upscope $end
 $scope module ffz $end
 $var wire 1 ) clk $end
-$var wire 1 K d $end
-$var wire 1 * reset $end
-$var wire 1 0 carga $end
-$var reg 1 / q $end
+$var wire 1 Q d $end
+$var wire 1 . reset $end
+$var wire 1 4 carga $end
+$var reg 1 3 q $end
 $upscope $end
 $scope module mem_prog $end
 $var wire 1 ) clk $end
-$var wire 16 q rd [15:0] $end
-$var wire 10 r a [9:0] $end
+$var wire 16 '" rd [15:0] $end
+$var wire 10 (" a [9:0] $end
 $upscope $end
 $scope module mux_1 $end
-$var wire 10 s d0 [9:0] $end
-$var wire 10 t y [9:0] $end
-$var wire 1 8 s $end
-$var wire 10 u d1 [9:0] $end
+$var wire 10 )" d0 [9:0] $end
+$var wire 10 *" y [9:0] $end
+$var wire 1 < s $end
+$var wire 10 +" d1 [9:0] $end
 $upscope $end
 $scope module mux_2 $end
-$var wire 8 v a [7:0] $end
-$var wire 8 w b [7:0] $end
-$var wire 2 x s [1:0] $end
-$var wire 8 y d [7:0] $end
-$var wire 8 z c [7:0] $end
-$var reg 8 { out [7:0] $end
+$var wire 8 ," a [7:0] $end
+$var wire 8 -" b [7:0] $end
+$var wire 2 ." s [1:0] $end
+$var wire 8 /" d [7:0] $end
+$var wire 8 0" c [7:0] $end
+$var reg 8 1" out [7:0] $end
 $upscope $end
 $scope module mux_3 $end
-$var wire 10 | d0 [9:0] $end
-$var wire 10 } y [9:0] $end
-$var wire 1 5 s $end
-$var wire 10 ~ d1 [9:0] $end
+$var wire 10 2" d0 [9:0] $end
+$var wire 10 3" y [9:0] $end
+$var wire 1 9 s $end
+$var wire 10 4" d1 [9:0] $end
 $upscope $end
 $scope module mux_4 $end
-$var wire 8 !" a [7:0] $end
-$var wire 8 "" b [7:0] $end
-$var wire 8 #" c [7:0] $end
-$var wire 8 $" d [7:0] $end
-$var wire 2 %" s [1:0] $end
-$var reg 8 &" out [7:0] $end
+$var wire 8 5" a [7:0] $end
+$var wire 8 6" b [7:0] $end
+$var wire 8 7" c [7:0] $end
+$var wire 8 8" d [7:0] $end
+$var wire 2 9" s [1:0] $end
+$var reg 8 :" out [7:0] $end
 $upscope $end
 $scope module mux_5 $end
-$var wire 8 '" d0 [7:0] $end
-$var wire 8 (" d1 [7:0] $end
-$var wire 8 )" y [7:0] $end
-$var wire 1 6 s $end
+$var wire 8 ;" d0 [7:0] $end
+$var wire 8 <" d1 [7:0] $end
+$var wire 8 =" y [7:0] $end
+$var wire 1 : s $end
+$upscope $end
+$scope module mux_6 $end
+$var wire 10 >" d0 [9:0] $end
+$var wire 1 N s $end
+$var wire 10 ?" y [9:0] $end
+$var wire 10 @" d1 [9:0] $end
+$upscope $end
+$scope module mux_7 $end
+$var wire 2 A" s [1:0] $end
+$var wire 10 B" d [9:0] $end
+$var wire 10 C" c [9:0] $end
+$var wire 10 D" b [9:0] $end
+$var wire 10 E" a [9:0] $end
+$var reg 10 F" out [9:0] $end
 $upscope $end
 $scope module pc $end
 $var wire 1 ) clk $end
-$var wire 10 *" d [9:0] $end
-$var wire 1 * reset $end
-$var reg 10 +" q [9:0] $end
+$var wire 10 G" d [9:0] $end
+$var wire 1 . reset $end
+$var reg 10 H" q [9:0] $end
 $upscope $end
 $scope module pila1 $end
 $var wire 1 ) clk $end
-$var wire 10 ," inpush [9:0] $end
-$var wire 1 * reset $end
-$var wire 1 = push $end
-$var wire 1 > pop $end
-$var reg 10 -" outpop [9:0] $end
-$var reg 3 ." sp [2:0] $end
+$var wire 10 I" inpush [9:0] $end
+$var wire 1 O push $end
+$var wire 1 . reset $end
+$var wire 1 B pop $end
+$var reg 10 J" outpop [9:0] $end
+$var reg 3 K" sp [2:0] $end
 $upscope $end
 $scope module reg1 $end
-$var wire 1 A clk $end
-$var wire 8 /" d [7:0] $end
-$var wire 1 * reset $end
-$var reg 8 0" q [7:0] $end
+$var wire 1 E clk $end
+$var wire 8 L" d [7:0] $end
+$var wire 1 . reset $end
+$var reg 8 M" q [7:0] $end
 $upscope $end
 $scope module reg2 $end
-$var wire 1 B clk $end
-$var wire 8 1" d [7:0] $end
-$var wire 1 * reset $end
-$var reg 8 2" q [7:0] $end
+$var wire 1 F clk $end
+$var wire 8 N" d [7:0] $end
+$var wire 1 . reset $end
+$var reg 8 O" q [7:0] $end
 $upscope $end
 $scope module reg3 $end
-$var wire 1 C clk $end
-$var wire 8 3" d [7:0] $end
-$var wire 1 * reset $end
-$var reg 8 4" q [7:0] $end
+$var wire 1 G clk $end
+$var wire 8 P" d [7:0] $end
+$var wire 1 . reset $end
+$var reg 8 Q" q [7:0] $end
 $upscope $end
 $scope module reg4 $end
-$var wire 1 D clk $end
-$var wire 8 5" d [7:0] $end
-$var wire 1 * reset $end
-$var reg 8 6" q [7:0] $end
+$var wire 1 H clk $end
+$var wire 8 R" d [7:0] $end
+$var wire 1 . reset $end
+$var reg 8 S" q [7:0] $end
+$upscope $end
+$scope module reg_int_1 $end
+$var wire 10 T" s [9:0] $end
+$var reg 10 U" reg_dat [9:0] $end
+$upscope $end
+$scope module reg_int_2 $end
+$var wire 10 V" s [9:0] $end
+$var reg 10 W" reg_dat [9:0] $end
+$upscope $end
+$scope module reg_int_3 $end
+$var wire 10 X" s [9:0] $end
+$var reg 10 Y" reg_dat [9:0] $end
+$upscope $end
+$scope module reg_int_4 $end
+$var wire 10 Z" s [9:0] $end
+$var reg 10 [" reg_dat [9:0] $end
 $upscope $end
 $scope module regpro1 $end
 $var wire 1 ) clk $end
-$var wire 8 7" rd [7:0] $end
-$var wire 8 8" wd [7:0] $end
-$var wire 12 9" wra [11:0] $end
-$var wire 1 2 we4 $end
+$var wire 8 \" rd [7:0] $end
+$var wire 8 ]" wd [7:0] $end
+$var wire 12 ^" wra [11:0] $end
+$var wire 1 6 we4 $end
 $upscope $end
 $scope module sum1 $end
-$var wire 10 :" a [9:0] $end
-$var wire 10 ;" b [9:0] $end
-$var wire 10 <" y [9:0] $end
+$var wire 10 _" a [9:0] $end
+$var wire 10 `" b [9:0] $end
+$var wire 10 a" y [9:0] $end
 $upscope $end
 $upscope $end
 $scope module uc_1 $end
-$var wire 16 =" opcode [15:0] $end
-$var wire 1 / z $end
-$var reg 3 >" op_alu [2:0] $end
-$var reg 1 > pop $end
-$var reg 1 = push $end
-$var reg 1 8 s_inc $end
-$var reg 2 ?" s_inm [1:0] $end
-$var reg 1 6 s_out $end
-$var reg 1 5 s_pila $end
-$var reg 2 @" s_port [1:0] $end
-$var reg 1 3 we3 $end
-$var reg 1 2 we4 $end
-$var reg 1 1 we5 $end
-$var reg 1 0 wez $end
+$var wire 1 * ie1 $end
+$var wire 1 + ie2 $end
+$var wire 1 , ie3 $end
+$var wire 1 - ie4 $end
+$var wire 16 b" opcode [15:0] $end
+$var wire 1 3 z $end
+$var reg 3 c" op_alu [2:0] $end
+$var reg 1 B pop $end
+$var reg 1 A push $end
+$var reg 1 < s_inc $end
+$var reg 2 d" s_inm [1:0] $end
+$var reg 1 : s_out $end
+$var reg 1 9 s_pila $end
+$var reg 2 e" s_port [1:0] $end
+$var reg 1 7 we3 $end
+$var reg 1 6 we4 $end
+$var reg 1 5 we5 $end
+$var reg 1 4 wez $end
 $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-b0 @"
-b0 ?"
-b10 >"
-b10000000000000 ="
-b1 <"
-b1 ;"
-b0 :"
+b0 e"
+b0 d"
+b0 c"
+b0 b"
+b1 a"
+b1 `"
+b0 _"
+b0 ^"
+b0 ]"
+b0 \"
+b1111111100 ["
+b1111111100 Z"
+b1111111101 Y"
+b1111111101 X"
+b1111111110 W"
+b1111111110 V"
+b1111111011 U"
+b1111111011 T"
+b0 S"
+b0 R"
+b0 Q"
+b0 P"
+b0 O"
+b0 N"
+b0 M"
+b0 L"
+b0 K"
+bx J"
+b1 I"
+b0 H"
+bx G"
+bx F"
+b1111111011 E"
+b1111111110 D"
+b1111111101 C"
+b1111111100 B"
+bx A"
+bx @"
+bx ?"
+b1 >"
+b0 ="
+b0 <"
+b0 ;"
+bz :"
 b0 9"
-b0 8"
-b0 7"
-b0 6"
-b0 5"
-b0 4"
-b0 3"
-b0 2"
+bz 8"
+bz 7"
+bz 6"
+bz 5"
+bx 4"
+b1 3"
+b1 2"
 b0 1"
 b0 0"
-b0 /"
+bz /"
 b0 ."
-bx -"
+b0 -"
 b0 ,"
-b0 +"
+b1 +"
 b1 *"
 b0 )"
 b0 ("
 b0 '"
-bz &"
-b0 %"
+x&"
+b1 %"
 bz $"
-bz #"
+z#"
 bz ""
-bz !"
-bx ~
-b1 }
-b1 |
+0!"
+0~
+b0 }
+b0 |
 b0 {
 b0 z
-bz y
+b0 y
 b0 x
 b0 w
 b0 v
-b1 u
-b1 t
+b0 u
+b0 t
 b0 s
 b0 r
-b10000000000000 q
-0p
-0o
-b0 n
+1q
+xp
+xo
+bz n
 b0 m
-b0 l
-b0 k
-b0 j
-b0 i
+b1 l
+bx k
+bx j
+b1 i
 b0 h
 b0 g
 b0 f
-b10 e
+bx e
 b0 d
 b0 c
-bz b
+b0 b
 b0 a
-b1 `
-b1 _
-b0 ^
-b10 ]
-b0 \
-bx [
+b0 `
+b0 _
+b1111111011 ^
+b1111111110 ]
+b1111111101 \
+b1111111100 [
 b0 Z
 b0 Y
-b0 X
-b0 W
-b0 V
-b0 U
+1X
+0W
+0V
+0U
 b0 T
-b0 S
-1R
-0Q
-0P
-0O
-b10000000000000 N
-b1 M
-b0 L
-1K
-zJ
-b10000000000000 I
-bz H
-bz G
-bz F
-bz E
-0D
-0C
+b1 S
+b0 R
+1Q
+zP
+xO
+xN
+b0 M
+bz L
+bz K
+bz J
+bz I
+0H
+0G
+0F
+0E
+b0 D
+b0 C
 0B
 0A
-b10 @
-b10000000000000 ?
-0>
-0=
-b0 <
+b0 @
+b0 ?
+b0 >
+b0 =
+1<
 b0 ;
-b0 :
-b0 9
-18
-b0 7
+0:
+09
+b0 8
+17
 06
 05
-b0 4
-13
-02
-01
-10
-0/
-bz .
-bz -
-bz ,
-bz +
-1*
+14
+03
+bz 2
+bz 1
+bz 0
+bz /
+1.
+x-
+x,
+x+
+x*
 1)
 b0 (
 b0 '
@@ -364,231 +475,272 @@ bz "
 bz !
 $end
 #1000
+b1111111011 j
+b1111111011 @"
+b1111111011 F"
+0O
+b1 k
+b1 ?"
+b1 G"
+0p
+b0 A"
+0o
+0N
+0-
+0,
+0+
 0*
-#3000
+0.
+#2000
 0)
-#6000
-b1011 ^
-b1011 )"
-b1011 /"
-b1011 1"
-b1011 3"
-b1011 5"
-b10 _
-b10 }
-b10 *"
-b1011 Y
-b1011 f
-b1011 m
-b1011 '"
-xC
-1A
-b10 `
-b10 t
-b10 |
-b100000 ("
-b110010000000 9"
-b11001000 w
-b1000 j
-b1100 i
-b10000000 s
-b0 @
-b0 ]
+#4000
+b10 k
+b10 ?"
+b10 G"
 b0 e
-b0 >"
-00
-11
-03
-1/
-b10 M
-b10 u
-b10 <"
-b1001110010000000 ?
-b1001110010000000 I
-b1001110010000000 ="
-b1001110010000000 N
-b1001110010000000 q
-b1 \
-b1 r
-b1 +"
-b1 ,"
-b1 :"
+b0 4"
+b0 J"
+b1 K"
+b10 l
+b10 3"
+b10 >"
+b10 I"
+1O
+b10 i
+b10 *"
+b10 2"
+04
+07
+1A
+b10 %"
+13
+b10 S
+b10 +"
+b10 a"
+b1001000000000000 C
+b1001000000000000 M
+b1001000000000000 b"
+b1001000000000000 T
+b1001000000000000 '"
+b1 f
+b1 ("
+b1 H"
+b1 _"
 1)
-#9000
+#6000
+0)
+#8000
+b11 k
+b11 ?"
+b11 G"
+b11 l
+b11 3"
+b11 >"
+b11 I"
+0O
+b11 i
+b11 *"
+b11 2"
+14
+0A
+17
+0q
+b11 %"
+b11 S
+b11 +"
+b11 a"
+b0 C
+b0 M
+b0 b"
+b0 T
+b0 '"
+b10 f
+b10 ("
+b10 H"
+b10 _"
+1)
+#10000
 0)
 #12000
-b1011 &
-b1011 :
-b1011 V
-b1011 4"
-b1011 (
-b1011 <
-b1011 X
-b1011 0"
-b0 ^
-b0 )"
-b0 /"
-b0 1"
-b0 3"
-b0 5"
-b11 _
-b11 }
-b11 *"
-b0 Y
-b0 f
-b0 m
-b0 '"
-0C
-0A
-b11 `
-b11 t
-b11 |
-b0 ("
-b0 9"
-b0 w
-b0 j
-b0 i
-b0 s
-10
-01
-13
-b11 M
-b11 u
-b11 <"
-b0 ?
-b0 I
-b0 ="
-b0 N
-b0 q
-b10 \
-b10 r
-b10 +"
-b10 ,"
-b10 :"
-1)
-#15000
-0)
-#18000
-b100 _
-b100 }
+b100 k
+b100 ?"
+b100 G"
+b100 l
+b100 3"
+b100 >"
+b100 I"
+b100 i
 b100 *"
-b100 `
-b100 t
-b100 |
-b100 M
-b100 u
-b100 <"
-b11 \
-b11 r
-b11 +"
-b11 ,"
-b11 :"
+b100 2"
+b0 %"
+b100 S
+b100 +"
+b100 a"
+b11 f
+b11 ("
+b11 H"
+b11 _"
 1)
-#21000
+#14000
+0)
+#16000
+b101 k
+b101 ?"
+b101 G"
+b101 l
+b101 3"
+b101 >"
+b101 I"
+b101 i
+b101 *"
+b101 2"
+1q
+b1 %"
+b101 S
+b101 +"
+b101 a"
+b100 f
+b100 ("
+b100 H"
+b100 _"
+1)
+#18000
+0)
+#20000
+b110 k
+b110 ?"
+b110 G"
+b110 l
+b110 3"
+b110 >"
+b110 I"
+b110 i
+b110 *"
+b110 2"
+b10 %"
+b110 S
+b110 +"
+b110 a"
+b101 f
+b101 ("
+b101 H"
+b101 _"
+1)
+#22000
 0)
 #24000
-b101 _
-b101 }
-b101 *"
-b101 `
-b101 t
-b101 |
-b101 M
-b101 u
-b101 <"
-b100 \
-b100 r
-b100 +"
-b100 ,"
-b100 :"
+b10 k
+b10 ?"
+b10 G"
+b10 l
+b10 3"
+b10 >"
+b10 I"
+b10 e
+b10 4"
+b10 J"
+b0 K"
+b111 i
+b111 *"
+b111 2"
+b10000000000 ^"
+b1000000 -"
+b100 x
+19
+04
+07
+1B
+0q
+b11 %"
+b111 S
+b111 +"
+b111 a"
+b1001010000000000 C
+b1001010000000000 M
+b1001010000000000 b"
+b1001010000000000 T
+b1001010000000000 '"
+b110 f
+b110 ("
+b110 H"
+b110 _"
 1)
-#27000
+#26000
 0)
-#30000
-b110 _
-b110 }
-b110 *"
-b110 `
-b110 t
-b110 |
-b110 M
-b110 u
-b110 <"
-b101 \
-b101 r
-b101 +"
-b101 ,"
-b101 :"
+#28000
+b11 k
+b11 ?"
+b11 G"
+b11 l
+b11 3"
+b11 >"
+b11 I"
+b11 i
+b11 *"
+b11 2"
+b0 ^"
+b0 -"
+b0 x
+14
+0B
+17
+09
+b0 %"
+b11 S
+b11 +"
+b11 a"
+b0 C
+b0 M
+b0 b"
+b0 T
+b0 '"
+b10 f
+b10 ("
+b10 H"
+b10 _"
 1)
-#33000
+#30000
+0)
+#32000
+b100 k
+b100 ?"
+b100 G"
+b100 l
+b100 3"
+b100 >"
+b100 I"
+b100 i
+b100 *"
+b100 2"
+1q
+b1 %"
+b100 S
+b100 +"
+b100 a"
+b11 f
+b11 ("
+b11 H"
+b11 _"
+1)
+#34000
 0)
 #36000
-b111 _
-b111 }
-b111 *"
-b111 `
-b111 t
-b111 |
-b111 M
-b111 u
-b111 <"
-b110 \
-b110 r
-b110 +"
-b110 ,"
-b110 :"
-1)
-#39000
-0)
-#42000
-b1000 _
-b1000 }
-b1000 *"
-b1000 `
-b1000 t
-b1000 |
-b1000 M
-b1000 u
-b1000 <"
-b111 \
-b111 r
-b111 +"
-b111 ,"
-b111 :"
-1)
-#45000
-0)
-#48000
-b1001 _
-b1001 }
-b1001 *"
-b1001 `
-b1001 t
-b1001 |
-b1001 M
-b1001 u
-b1001 <"
-b1000 \
-b1000 r
-b1000 +"
-b1000 ,"
-b1000 :"
-1)
-#51000
-0)
-#54000
-b1010 _
-b1010 }
-b1010 *"
-b1010 `
-b1010 t
-b1010 |
-b1010 M
-b1010 u
-b1010 <"
-b1001 \
-b1001 r
-b1001 +"
-b1001 ,"
-b1001 :"
+b101 k
+b101 ?"
+b101 G"
+b101 l
+b101 3"
+b101 >"
+b101 I"
+b101 i
+b101 *"
+b101 2"
+b10 %"
+b101 S
+b101 +"
+b101 a"
+b100 f
+b100 ("
+b100 H"
+b100 _"
 1)
