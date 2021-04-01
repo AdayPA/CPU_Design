@@ -70,7 +70,10 @@ assign or_to_mux6 = ie1 | ie2 | ie3 | ie4;
 assign or_to_pila = push | or_to_mux6;
 //32
 wire clk_out;
-Clock_divider divisor(clk,,,, clk_out,);
+
+reg [2:0] base = 3'b000;
+reg [3:0] umbral = 4'b0001;
+Clock_divider divisor(clk,,base,umbral, clk_out,);
 assign opcode = sal_mem_pro;
 
 

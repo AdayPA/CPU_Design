@@ -49,7 +49,8 @@ initial
 begin
 
   //#(9*60);  //Esperamos 9 ciclos o 9 instrucciones
-  #(9*40);  //Esperamos 9 ciclos o 9 instrucciones
+  //#(9*40);  //Esperamos 9 ciclos o 9 instrucciones
+  #(50001*40);  //Esperamos 9 ciclos o 9 instrucciones
   $finish;
 end
 

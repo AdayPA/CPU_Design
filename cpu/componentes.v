@@ -196,39 +196,46 @@ endmodule
 
 //module timer(input wire reinicio, clk, input wire [2:0] base, input wire [3:0] umbral, output wire s, state);
 // clk de 50 Mhz (usar flip flops para reducir los Hz)
-module Clock_divider(input clock_in, reset, input wire [2:0] base, input wire [3:0] umbra, output reg clock_out, state );
+module Clock_divider(input clock_in, reset, input wire [2:0] base, input wire [3:0] umbral, output reg clock_out, state );
 
-	reg[27:0] counter=28'd0;
-	case (base)
-		3'b000:
+	reg[27:0] counter = 28'd0;
+	//reg[27:0] divisor = 28'b0000000000000000000000000000;
+	parameter seg_ = 50000000;
+	parameter milis_ = 5000;
+	reg[27:0] divisor;
+	always @(base)
+	begin
+		case (base)
+			3'b000: //milis
+				begin
+					divisor = 50000;
+				end
+			3'b001: // centesimas de segundos
+                       		begin
+					divisor = 500000;
+                	        end
+			3'b010: // decimas de segundos
+        	                begin
+					divisor = 5000000;
+        	                end
+			3'b011: //segundos
+                	        begin
+					divisor = 50000000;
+                	        end
+			3'b100: // minutos
+                	        begin
+        	                end
+		default:
 			begin
-				parameter DIVISOR = 28'd0;
-			end
-		3'b001:
-                        begin
-                                parameter DIVISOR = 28'd4;
-                        end
-		3'b010:
-                        begin
-                                parameter DIVISOR = 28'd4;
-                        end
-		3'b011:
-                        begin
-                                parameter DIVISOR = 28'd50000000;
-                        end
-		3'b100:
-                        begin
-                                parameter DIVISOR = 28'd4;
-                        end
-	default:
-		begin
 	
-		end
-	endcase
+			end
+		endcase
+	end
 // The frequency of the output clk_DIVISOR = 28'd4;
 // For example: Fclk_in = 50Mhz, if you want to get 1Hz signal to blink LEDs
 // You will modify the DIVISOR parameter value to 28'd50.000.000
 // Then the frequency of the output clk_out = 50Mhz/50.000.000 = 1Hz
+/*
 always @(posedge clock_in)
 begin
  counter <= counter + 28'd1;
@@ -237,7 +244,20 @@ begin
 
  clock_out <= (counter<DIVISOR/2)?1'b1:1'b0;
 
+end*/
+//reg [3:0] temp = 3'b000;
+always @(posedge clock_in)
+begin
+ counter <= counter + 28'd1;
+
+if(counter %divisor == 0)
+	clock_out = 1'b0;
+else
+	clock_out = 1'b0;
+
 end
+
+
 endmodule
 
 
