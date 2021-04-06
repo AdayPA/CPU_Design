@@ -1,6 +1,4 @@
-//`timescale 1 ns / 10 ps
-`timescale 1 us / 10 ps
-
+`timescale 1 ns / 10 ps
 
 // unidad de cuenta de simulacion / escala 
 // frecuencia = 16'8 mhz
@@ -16,10 +14,10 @@ always //siempre activo, no hay condición de activación
 begin
   clk = 1'b1;
   //#30;
-  #25; // 50mhz
+  #20; // 50mhz
   clk = 1'b0;
   //#30;
-  #25;
+  #20;
 end
 
 // instanciación del procesador

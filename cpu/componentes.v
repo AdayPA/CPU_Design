@@ -196,31 +196,31 @@ endmodule
 
 //module timer(input wire reinicio, clk, input wire [2:0] base, input wire [3:0] umbral, output wire s, state);
 // clk de 50 Mhz (usar flip flops para reducir los Hz)
-module Clock_divider(input clock_in, reset, input wire [2:0] base, input wire [3:0] umbral, output reg clock_out, state );
+module Clock_divider(input clock_in, reset, input wire [2:0] base, input wire [5:0] umbral, output reg clock_out);
+
+	// añadir enable
 
 	reg[27:0] counter = 28'd0;
 	//reg[27:0] divisor = 28'b0000000000000000000000000000;
-	parameter seg_ = 50000000;
-	parameter milis_ = 5000;
 	reg[27:0] divisor;
 	always @(base)
 	begin
 		case (base)
 			3'b000: //milis
 				begin
-					divisor = 50000;
+					divisor = 20;
 				end
 			3'b001: // centesimas de segundos
                        		begin
-					divisor = 500000;
+					divisor = 200;
                 	        end
 			3'b010: // decimas de segundos
         	                begin
-					divisor = 5000000;
+					divisor = 2000;
         	                end
 			3'b011: //segundos
                 	        begin
-					divisor = 50000000;
+					divisor = 20000;
                 	        end
 			3'b100: // minutos
                 	        begin
@@ -245,27 +245,37 @@ begin
  clock_out <= (counter<DIVISOR/2)?1'b1:1'b0;
 
 end*/
-reg [3:0] temp = 4'b0000;
-always @(posedge clock_in)
-begin
- counter <= counter + 28'd1;
-/*
+	reg [5:0] temp = 6'b000000;
+	always @(posedge clock_in)
+	begin
+		counter <= counter + 28'd1;
+
 if(counter %divisor == 0)
-	clock_out = 1'b0;
-else
-	clock_out = 1'b0;
-*/
-if (counter %divisor == 0)
-	temp = temp + 4'b0001;
-else
-	temp = temp;
-if (temp == umbral)
+
 	clock_out = 1'b1;
 else
 	clock_out = 1'b0;
-if(temp>=umbral)
-	temp <= 4'b0000;
-end
+
+/*
+
+		if (counter %divisor == 0) begin
+			temp = temp + 6'b000001;
+		//	clock_out = 1'b1;
+		end
+		else
+			temp = temp;
+		if (temp == umbral) begin
+			//clock_out = 1'b1;
+			temp = 6'b000000;
+			
+		end
+		else
+			clock_out = 1'b0;
+
+	*/
+	end
+
+
 endmodule
 
 

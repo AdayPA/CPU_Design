@@ -15,7 +15,7 @@ casez (opcode[15:10])
 			we5 = 0;
 			wez = 1;
 		        s_port = 2'b00;
-			s_out = 0;	
+			s_out = 0;
 		end
 	6'b100000:   // carga inmediata
 		begin
@@ -31,7 +31,6 @@ casez (opcode[15:10])
 			s_out = 0;
 			s_port = 2'b00;
 			wez = 0;
-
 		end
 	6'b100001:  // salto
 		begin
@@ -131,7 +130,6 @@ casez (opcode[15:10])
 			s_inc = 1;
 			s_inm = 2'b11;
 			op_alu = 3'b000;
-
 		end
 	6'b100111: // reg to output  100111 empty[9:8] reg[7:4] empty[3:2]  port_out[1:0] 
 		begin
@@ -162,7 +160,21 @@ casez (opcode[15:10])
 			s_inc = 1;
 			s_inm = 2'b00;
 			op_alu = 3'b000;
-
+		end
+	6'b101001: // timer  opcode[6] + enable[1] + base[3] + umbral[6]
+		begin
+			push = 0;
+			pop = 0;
+			we3 = 0;
+			we4 = 0;
+			we5 = 0;
+			wez = 0;
+			s_pila = 0;
+			s_port = 2'b00;
+			s_out = 1;
+			s_inc = 1;
+			s_inm = 2'b00;
+			op_alu = 3'b000;
 		end
 	6'b111000: // load word (mem datos ----> banco registros)  1110 mem dato[8] banc[4]
 		begin
