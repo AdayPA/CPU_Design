@@ -16,7 +16,7 @@ always //siempre activo, no hay condición de activación
 begin
   clk = 1'b1;
   //#30;
-  #25; // 50mhz
+  #25; // 50mhz  24
   clk = 1'b0;
   //#30;
   #25;
@@ -52,7 +52,7 @@ begin
 
   //#(9*60);  //Esperamos 9 ciclos o 9 instrucciones
   //#(9*40);  //Esperamos 9 ciclos o 9 instrucciones
-  #(500002*40);  //Esperamos 9 ciclos o 9 instrucciones
+  #(5000000*50);  //Esperamos 9 ciclos o 9 instrucciones
   $finish;
 end
 

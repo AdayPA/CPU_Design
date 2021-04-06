@@ -72,7 +72,7 @@ assign or_to_pila = push | or_to_mux6;
 assign end_to_ie4 = sal_mem_pro[9] & sal_timer;
 //33
 //Clock_divider divisor(clk,reset, sal_mem_pro[8:6], sal_mem_pro[5:0], clk_out);
-Clock_divider divisor(clk,reset, 3'b000, 6'b000001, clk_out);
+Clock_divider divisor(clk,reset, 3'b100, 6'b000001, clk_out);
 assign opcode = sal_mem_pro;
 
 

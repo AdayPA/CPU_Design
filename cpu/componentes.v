@@ -222,8 +222,9 @@ module Clock_divider(input clock_in, reset, input wire [2:0] base, input wire [5
                 	        begin
 					divisor = 20000;
                 	        end
-			3'b100: // minutos
+			3'b100: // minutos  20000 * 60 = 1200000
                 	        begin
+					divisor = 1200000;
         	                end
 		default:
 			begin
@@ -248,34 +249,35 @@ end*/
 	reg [5:0] temp = 6'b000000;
 	always @(posedge clock_in)
 	begin
-		counter <= counter + 28'd1;
-
+/*
 if(counter %divisor == 0)
 
 	clock_out = 1'b1;
 else
 	clock_out = 1'b0;
 
-/*
-
-		if (counter %divisor == 0) begin
-			temp = temp + 6'b000001;
-		//	clock_out = 1'b1;
-		end
+*/
+		if (counter %divisor == 0) 
+			begin
+				temp = temp + 6'b000001;
+				clock_out = 1'b1;
+			end
 		else
-			temp = temp;
-		if (temp == umbral) begin
-			//clock_out = 1'b1;
-			temp = 6'b000000;
-			
-		end
+			begin
+				clock_out = 1'b0;
+				temp = temp;
+			end
+		if (temp == umbral) 
+			begin
+				temp = 6'b000000;
+			end
 		else
-			clock_out = 1'b0;
+			begin
+				clock_out = 1'b0;
+			end
 
-	*/
+		counter <= counter + 28'd1;
 	end
-
-
 endmodule
 
 
