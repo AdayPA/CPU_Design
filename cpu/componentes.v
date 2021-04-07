@@ -196,16 +196,19 @@ endmodule
 
 //module timer(input wire reinicio, clk, input wire [2:0] base, input wire [3:0] umbral, output wire s, state);
 // clk de 50 Mhz (usar flip flops para reducir los Hz)
-module Clock_divider(input clock_in, reset, input wire [2:0] base, input wire [5:0] umbral, output reg clock_out);
+module Clock_divider(input clock_in, reset,  enable, input wire [2:0] base, input wire [5:0] umbral, output reg clock_out);
 
 	// añadir enable
-
+	//reg [8:0] base_th = 9'b000000001;
+	reg [8:0] base_th;
+	always @(enable) 
+		if (enable)  base_th <= {base,umbral};
 	reg[27:0] counter = 28'd0;
 	//reg[27:0] divisor = 28'b0000000000000000000000000000;
 	reg[27:0] divisor;
-	always @(base)
+	always @(base_th[8:6])
 	begin
-		case (base)
+		case (base_th[8:6])
 			3'b000: //milis
 				begin
 					divisor = 20;
@@ -260,14 +263,14 @@ else
 		if (counter %divisor == 0) 
 			begin
 				temp = temp + 6'b000001;
-				clock_out = 1'b1;
+				clock_out = 1'b1 & enable;
 			end
 		else
 			begin
 				clock_out = 1'b0;
 				temp = temp;
 			end
-		if (temp == umbral) 
+		if (temp == base_th[5:0]) 
 			begin
 				temp = 6'b000000;
 			end

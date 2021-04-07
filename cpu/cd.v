@@ -1,4 +1,4 @@
-module cd(input wire clk, reset, s_inc, we3, wez, s_pila, push, pop, we4, s_out, we5, ie1, ie2, ie3, ie4, input wire [1:0] s_port, input wire [1:0] s_inm, input wire [2:0] op_alu, output wire z, output wire [15:0] opcode, output wire [7:0] reg1_out, reg2_out, reg3_out, reg4_out, input wire [7:0] i1, i2, i3, i4);
+module cd(input wire clk, reset, s_inc, we3, wez, s_pila, push, pop, we4, s_out, we5, ie1, ie2, ie3, ie4, enable_timer, input wire [1:0] s_port, input wire [1:0] s_inm, input wire [2:0] op_alu, output wire z, output wire [15:0] opcode, output wire [7:0] reg1_out, reg2_out, reg3_out, reg4_out, input wire [7:0] i1, i2, i3, i4);
 //Camino de datos de instrucciones de un solo ciclo
 wire [9:0] mux6_to_pc, pc_to_mem, sum_to_mux, mux_to_mux, pila_to_mux, mux3_to_mux6, mux7_to_mux6, reg5_to_mux7, reg6_to_mux7, reg7_to_mux7, reg8_to_mux7;
 wire [7:0] rd1, rd2, alu_to_mux, wd3, memdat_to_mux, mux_to_reg, input_mux_to_mux;
@@ -71,7 +71,7 @@ assign or_to_pila = push | or_to_mux6;
 //32
 assign end_to_ie4 = sal_mem_pro[9] & sal_timer;
 //33
-Clock_divider divisor(clk,reset, sal_mem_pro[8:6], sal_mem_pro[5:0], clk_out);
+Clock_divider divisor(clk,reset, enable_timer, sal_mem_pro[8:6], sal_mem_pro[5:0], clk_out);
 //Clock_divider divisor(clk,reset, 3'b001, 6'b000001, clk_out);
 assign opcode = sal_mem_pro;
 

@@ -1,4 +1,4 @@
-module uc(input wire [15:0] opcode, input wire z, output reg s_inc, we3, wez, s_pila, push, pop, we4, s_out, we5,  output reg [1:0] s_port ,output reg [1:0] s_inm,  output reg [2:0] op_alu, input wire ie1, ie2, ie3, ie4);
+module uc(input wire [15:0] opcode, input wire z, output reg s_inc, we3, wez, s_pila, push, pop, we4, s_out, we5, timer_enable, output reg [1:0] s_port ,output reg [1:0] s_inm,  output reg [2:0] op_alu, input wire ie1, ie2, ie3, ie4);
 
 always @(opcode)
 casez (opcode[15:10])
@@ -175,6 +175,7 @@ casez (opcode[15:10])
 			s_inc = 1;
 			s_inm = 2'b00;
 			op_alu = 3'b000;
+			timer_enable = opcode[9];
 		end
 	6'b1110zz: // load word (mem datos ----> banco registros)  1110 mem dato[8] banc[4]
 		begin
