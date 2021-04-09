@@ -169,7 +169,7 @@ module reg_int_3(output wire [9:0] s);
 endmodule
 
 module reg_int_4(output wire [9:0] s);
-        reg [9:0] reg_dat = 10'b1111111100;
+        reg [9:0] reg_dat = 10'b0000001010;
         /*
 	initial
         begin   

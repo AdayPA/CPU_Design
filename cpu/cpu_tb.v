@@ -9,8 +9,8 @@ module cpu_tb;
 
 
 reg clk, reset, ie1, ie2, ie3, ie4;
-wire [7:0] o1, o2, o3, o4, i1, i2, i3, i4;
-
+wire [7:0] o1, o2, o3, o4;
+reg [7:0] i1, i2, i3, i4;
 // generación de reloj clk
 always //siempre activo, no hay condición de activación
 begin
@@ -38,15 +38,14 @@ begin
   ie3 = 0;
   ie4 = 0;
 end
-/*
-initial
+
+always
 begin
-	#(2*60);
-	ie1 = 1;
-	#(60);
-	ie1 = 0;
+	#(25);
+	i1 = 8'b00000000;
+	#(25);
+	i1 = 8'b00000100;
 end
-*/
 initial
 begin
 
