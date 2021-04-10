@@ -75,7 +75,7 @@ assign ie4_timer = ie4 | clk_out;
 Clock_divider divisor(clk,reset, enable_timer, sal_mem_pro[8:6], sal_mem_pro[5:0], clk_out);
 //Clock_divider divisor(clk,reset, 3'b001, 6'b000001, clk_out);
 //34
-mux41 #12 mux_8 (sal_mem_pro[11:0], {rd2, 4'b0000}, {4'b0000, rd1}, , s_data, mux8_to_memdata);
+mux41 #12 mux_8 (sal_mem_pro[11:0], {rd2, 4'b0000}, {4'b0000 ,rd2}, , s_data, mux8_to_memdata);
 assign opcode = sal_mem_pro;
 
 

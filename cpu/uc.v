@@ -252,7 +252,7 @@ casez (opcode[15:10])
                         s_inc = 1;
                         s_inm = 2'b00;
                         op_alu = 3'b000;
-			s_data = 2'b01;
+			s_data = 2'b10;
                 end
 default:  ;
 endcase
