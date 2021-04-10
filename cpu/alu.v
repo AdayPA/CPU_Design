@@ -7,8 +7,8 @@ reg [7:0] s;
 		   
 always @(a, b, op_alu)
 begin
-  case (op_alu)              
-    3'b000: s = a;
+  case (op_alu)             
+    3'b000: s = a; 
     3'b001: s = ~a;
     3'b010: s = a + b;
     3'b011: s = a - b;

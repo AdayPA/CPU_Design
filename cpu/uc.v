@@ -46,7 +46,7 @@ casez (opcode[15:10])
 			wez = 0;
 			s_out = 0;
 			s_port = 2'b00;
-			op_alu = 3'b00;
+			op_alu = 3'b000;
 			s_inm = 2'b00;
 			s_data = 2'b00;
 		end
