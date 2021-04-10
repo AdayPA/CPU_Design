@@ -1,9 +1,10 @@
-module cd(input wire clk, reset, s_inc, we3, wez, s_pila, push, pop, we4, s_out, we5, ie1, ie2, ie3, ie4, enable_timer, input wire [1:0] s_port, input wire [1:0] s_inm, input wire [2:0] op_alu, output wire z, output wire [15:0] opcode, output wire [7:0] reg1_out, reg2_out, reg3_out, reg4_out, input wire [7:0] i1, i2, i3, i4);
+module cd(input wire clk, reset, s_inc, we3, wez, s_pila, push, pop, we4, s_out, we5, ie1, ie2, ie3, ie4, enable_timer, input wire [1:0] s_port, s_data,input wire [1:0] s_inm, input wire [2:0] op_alu, output wire z, output wire [15:0] opcode, output wire [7:0] reg1_out, reg2_out, reg3_out, reg4_out, input wire [7:0] i1, i2, i3, i4);
 //Camino de datos de instrucciones de un solo ciclo
 wire [9:0] mux6_to_pc, pc_to_mem, sum_to_mux, mux_to_mux, pila_to_mux, mux3_to_mux6, mux7_to_mux6, reg5_to_mux7, reg6_to_mux7, reg7_to_mux7, reg8_to_mux7;
 wire [7:0] rd1, rd2, alu_to_mux, wd3, memdat_to_mux, mux_to_reg, input_mux_to_mux;
 wire [15:0] sal_mem_pro;
 wire zalu, sal_dec_1, sal_dec_2, sal_dec_3, sal_dec_4, and1_to_reg, and2_to_reg, and3_to_reg, and4_to_reg, or_to_mux6, cod42_0_to_mux7, cod42_1_to_mux7, or_to_pila, and_to_ie4, ie4_timer;
+wire [11:0] mux8_to_memdata;
 
 //1
 mux2 #10 mux_1(sal_mem_pro[9:0], sum_to_mux, s_inc, mux_to_mux);
@@ -27,7 +28,7 @@ mux2 #10 mux_3(mux_to_mux, pila_to_mux, s_pila, mux3_to_mux6);
 //pila pila1(clk, reset, or_to_pila, pop, pc_to_mem, pila_to_mux);
 pila pila1(clk, reset, or_to_pila, pop, mux3_to_mux6, pila_to_mux);
 //11
-regprog regpro1(clk, we4, sal_mem_pro[11:0], rd1, memdat_to_mux);
+regprog regpro1(clk, we4, mux8_to_memdata, rd1, memdat_to_mux);
 //12
 mux41 #8 mux_4(i1, i2, i3, i4, s_port, input_mux_to_mux);
 //13
@@ -73,6 +74,8 @@ assign ie4_timer = ie4 | clk_out;
 //33
 Clock_divider divisor(clk,reset, enable_timer, sal_mem_pro[8:6], sal_mem_pro[5:0], clk_out);
 //Clock_divider divisor(clk,reset, 3'b001, 6'b000001, clk_out);
+//34
+mux41 #12 mux_8 (sal_mem_pro[11:0], {rd2, 4'b0000}, {4'b0000, rd1}, , s_data, mux8_to_memdata);
 assign opcode = sal_mem_pro;
 
 
